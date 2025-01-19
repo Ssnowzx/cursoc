@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variáveis Globais em C</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Perfect DOS VGA 437';
+            src: url('fonts/PerfectDOSVGA437.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        body {
+            font-family: 'Perfect DOS VGA 437', monospace;
+        }
+        .code-box {
+            background-color: #1e1e1e;
+            border-radius: 8px;
+            padding: 1rem;
+            font-family: 'Fira Code', monospace;
+            color: #d4d4d4;
+            overflow-x: auto;
+        }
+        .code-box code {
+            color: #c678dd; /* Roxo para o código */
+        }
+    </style>
+</head>
+<body class="bg-black text-white">
+
+    <!-- Header -->
+    <header class="text-center py-10 bg-black">
+        <h1 class="text-3xl sm:text-5xl font-bold text-purple-500">Variáveis Globais em C</h1>
+        <p class="mt-4 text-gray-400 text-lg sm:text-2xl">
+            Aprenda sobre variáveis globais na linguagem de programação C.
+        </p>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="container mx-auto px-4">
+        <!-- Introdução -->
+        <section class="mb-12">
+            <h2 class="text-2xl sm:text-3xl font-bold text-purple-500 mb-4">Introdução</h2>
+            <p class="text-gray-400 text-lg">
+                Nesta seção, eu gostaria de falar um pouco mais sobre a diferença entre as variáveis locais e globais.
+            </p>
+            <p class="text-gray-400 text-lg mt-4">
+                Uma variável local é definida dentro de uma função, estando disponível apenas dentro daquela função.
+            </p>
+            <p class="text-gray-400 text-lg mt-4">
+                Uma variável global é definida fora das funções e pode ser acessada de qualquer função do programa.
+            </p>
+        </section>
+
+        <!-- Variáveis Locais -->
+        <section class="mb-12">
+            <h2 class="text-2xl sm:text-3xl font-bold text-purple-500 mb-4">Variáveis Locais</h2>
+            <p class="text-gray-400 text-lg">
+                Aqui está um exemplo de uma variável local:
+            </p>
+            <div class="code-box">
+                <pre><code>#include &lt;stdio.h&gt;
+
+int main(void) {
+  char j = 0;
+  j += 10;
+  printf("%u", j); //10
+}</code></pre>
+            </div>
+            <p class="text-gray-400 text-lg mt-4">
+                A variável <code>j</code> não está disponível em nenhum outro lugar fora da função <code>main</code>.
+            </p>
+        </section>
+
+        <!-- Variáveis Globais -->
+        <section class="mb-12">
+            <h2 class="text-2xl sm:text-3xl font-bold text-purple-500 mb-4">Variáveis Globais</h2>
+            <p class="text-gray-400 text-lg">
+                Aqui está um exemplo de uma variável global:
+            </p>
+            <div class="code-box">
+                <pre><code>#include &lt;stdio.h&gt;
+
+char i = 0;
+
+int main(void) {
+  i += 10;
+  printf("%u", i); //10
+}</code></pre>
+            </div>
+            <p class="text-gray-400 text-lg mt-4">
+                A variável <code>i</code> pode ser acessada de qualquer função do programa. O acesso não é limitado à leitura do valor: a variável pode ser atualizada a partir de qualquer função.
+            </p>
+            <p class="text-gray-400 text-lg mt-4">
+                Por causa disso, variáveis globais são uma maneira que temos de compartilhar os mesmos dados entre funções.
+            </p>
+        </section>
+
+        <!-- Diferença Principal -->
+        <section class="mb-12">
+            <h2 class="text-2xl sm:text-3xl font-bold text-purple-500 mb-4">Diferença Principal</h2>
+            <p class="text-gray-400 text-lg">
+                A diferença principal entre variáveis locais e globais é que a memória alocada para as variáveis locais é liberada assim que a função se encerra.
+            </p>
+            <p class="text-gray-400 text-lg mt-4">
+                Variáveis globais são liberadas apenas quando o programa se encerra.
+            </p>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center py-6 bg-black mt-10 border-t border-gray-800">
+        <p class="text-gray-400 text-sm">
+            Artigo original: 
+            <a href="https://flaviocopes.pages.dev/books/c-handbook.pdf" target="_blank" class="text-white hover:underline">
+                The C Beginner's Handbook: Learn C Programming Language basics in just a few hours
+            </a>
+        </p>
+        <p class="text-gray-400 text-sm mt-2">
+            Este manual não busca cobrir tudo o que existe em relação ao C. Ele se concentra no básico da linguagem, tentando simplificar os tópicos mais complexos.
+        </p>
+    </footer>
+
+</body>
+</html>

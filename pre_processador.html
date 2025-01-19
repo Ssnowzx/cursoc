@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O Pré-processador em C</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Perfect DOS VGA 437';
+            src: url('fonts/PerfectDOSVGA437.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        body {
+            font-family: 'Perfect DOS VGA 437', monospace;
+        }
+        .code-box {
+            background-color: #1e1e1e;
+            border-radius: 8px;
+            padding: 1rem;
+            font-family: 'Fira Code', monospace;
+            color: #d4d4d4;
+            overflow-x: auto;
+        }
+        .code-box code {
+            color: #c678dd; /* Roxo para o código */
+        }
+    </style>
+</head>
+<body class="bg-black text-white">
+
+    <!-- Header -->
+    <header class="text-center py-10 bg-black">
+        <h1 class="text-3xl sm:text-5xl font-bold text-purple-500">O Pré-processador em C</h1>
+        <p class="mt-4 text-gray-400 text-lg sm:text-2xl">
+            Aprenda sobre o pré-processador e suas funcionalidades na linguagem de programação C.
+        </p>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="container mx-auto px-4">
+        <!-- Introdução -->
+        <section class="mb-12">
+            <h2 class="text-2xl sm:text-3xl font-bold text-purple-500 mb-4">Introdução</h2>
+            <p class="text-gray-400 text-lg">
+                O pré-processador é uma ferramenta que nos ajuda muito quando programamos em C. Ele é parte do padrão C, assim como a linguagem, o compilador e a biblioteca padrão.
+            </p>
+            <p class="text-gray-400 text-lg mt-4">
+                Ele analisa o nosso programa e garante que o compilador obtém tudo de que precisa antes de dar sequência ao processo.
+            </p>
+            <p class="text-gray-400 text-lg mt-4">
+                O que ele faz, na prática?
+            </p>
+            <p class="text-gray-400 text-lg mt-4">
+                Por exemplo, ele procura todos os arquivos de cabeçalho que você inclui com a diretiva <code>#include</code>.
+            </p>
+            <p class="text-gray-400 text-lg mt-4">
+                Ele também procura todas as constantes que você definiu usando <code>#define</code> e as substitui pelo valor real.
+            </p>
+            <p class="text-gray-400 text-lg mt-4">
+                Esse é só o começo. Eu mencionei essas 2 operações porque elas são as mais comuns. O pré-processador pode fazer isso e muito mais.
+            </p>
+            <p class="text-gray-400 text-lg mt-4">
+                Você percebeu que <code>#include</code> e <code>#define</code> têm um <code>#</code> no começo? Isso é comum para todas as diretivas do pré-processador. Se uma linha começa com <code>#</code>, ela é tratada pelo pré-processador.
+            </p>
+        </section>
+
+        <!-- Condicionais -->
+        <section class="mb-12">
+            <h2 class="text-2xl sm:text-3xl font-bold text-purple-500 mb-4">Condicionais</h2>
+            <p class="text-gray-400 text-lg">
+                Algo que podemos fazer é usar condicionais para mudar como nosso programa será compilado, dependendo do valor de uma expressão.
+            </p>
+            <p class="text-gray-400 text-lg mt-4">
+                Por exemplo, podemos verificar se a constante <code>DEBUG</code> é 0:
+            </p>
+            <div class="code-box">
+                <pre><code>#include &lt;stdio.h&gt;
+
+const int DEBUG = 0;
+
+int main(void) {
+#if DEBUG == 0
+  printf("Eu NÃO estou fazendo debugging\n");
+#else
+  printf("Eu estou fazendo debugging\n");
+#endif
+}</code></pre>
+            </div>
+        </section>
+
+        <!-- Constantes Simbólicas -->
+        <section class="mb-12">
+            <h2 class="text-2xl sm:text-3xl font-bold text-purple-500 mb-4">Constantes Simbólicas</h2>
+            <p class="text-gray-400 text-lg">
+                Podemos definir uma constante simbólica:
+            </p>
+            <div class="code-box">
+                <pre><code>#define VALOR 1
+#define PI 3.14
+#define NOME "Flavio"</code></pre>
+            </div>
+            <p class="text-gray-400 text-lg mt-4">
+                Quando usamos <code>NOME</code>, <code>PI</code> ou <code>VALOR</code> em nosso programa, o pré-processador substitui o nome das constantes pelo valor antes de executar o programa.
+            </p>
+            <p class="text-gray-400 text-lg mt-4">
+                As constantes simbólicas são muito úteis, pois podemos dar nomes aos valores sem criar variáveis em tempo de compilação.
+            </p>
+        </section>
+
+        <!-- Macros -->
+        <section class="mb-12">
+            <h2 class="text-2xl sm:text-3xl font-bold text-purple-500 mb-4">Macros</h2>
+            <p class="text-gray-400 text-lg">
+                Com <code>#define</code>, também podemos definir uma macro. A diferença entre uma macro e uma constante simbólica está no fato de que uma macro pode aceitar um argumento e tipicamente contém código, enquanto uma constante simbólica é um valor:
+            </p>
+            <div class="code-box">
+                <pre><code>#define POTENCIA(x) ((x) * (x))</code></pre>
+            </div>
+            <p class="text-gray-400 text-lg mt-4">
+                Observe os parênteses que cercam os argumentos: essa é uma prática recomendada para evitar problemas quando a macro é substituída no processo de pré-compilação.
+            </p>
+            <p class="text-gray-400 text-lg mt-4">
+                Então, podemos usá-la em nosso código, assim:
+            </p>
+            <div class="code-box">
+                <pre><code>printf("%u\n", POTENCIA(4)); //16</code></pre>
+            </div>
+            <p class="text-gray-400 text-lg mt-4">
+                A grande diferença das funções está no fato de que as macros não especificam o tipo de seus argumentos ou valores de retorno, o que pode ser útil em alguns casos.
+            </p>
+            <p class="text-gray-400 text-lg mt-4">
+                As macros, no entanto, estão limitadas a definições de uma linha.
+            </p>
+        </section>
+
+        <!-- If Definido -->
+        <section class="mb-12">
+            <h2 class="text-2xl sm:text-3xl font-bold text-purple-500 mb-4">If Definido</h2>
+            <p class="text-gray-400 text-lg">
+                Podemos verificar se uma constante simbólica ou uma macro estão definidas usando <code>#ifdef</code>:
+            </p>
+            <div class="code-box">
+                <pre><code>#include &lt;stdio.h&gt;
+#define VALOR 1
+
+int main(void) {
+#ifdef VALOR
+  printf("O valor está definido\n");
+#else
+  printf("O valor não está definido\n");
+#endif
+}</code></pre>
+            </div>
+            <p class="text-gray-400 text-lg mt-4">
+                Também temos <code>#ifndef</code> para verificar o contrário (se a macro não está definida).
+            </p>
+            <p class="text-gray-400 text-lg mt-4">
+                Também podemos usar <code>#if defined</code> e <code>#if !defined</code> para realizar a mesma tarefa.
+            </p>
+            <p class="text-gray-400 text-lg mt-4">
+                É comum envolver algum bloco de código em um bloco desse modo:
+            </p>
+            <div class="code-box">
+                <pre><code>#if 0
+
+#endif</code></pre>
+            </div>
+            <p class="text-gray-400 text-lg mt-4">
+                para evitar temporariamente que ele seja executado, ou para usar uma constante simbólica <code>DEBUG</code>:
+            </p>
+            <div class="code-box">
+                <pre><code>#define DEBUG 0
+
+#if DEBUG
+  //código enviado ao compilador
+  //apenas se DEBUG não for 0
+#endif</code></pre>
+            </div>
+        </section>
+
+        <!-- Constantes Simbólicas Predefinidas -->
+        <section class="mb-12">
+            <h2 class="text-2xl sm:text-3xl font-bold text-purple-500 mb-4">Constantes Simbólicas Predefinidas</h2>
+            <p class="text-gray-400 text-lg">
+                O pré-processador também define algumas constantes simbólicas que você pode usar, identificadas por duas sublinhas antes e após o nome, incluindo:
+            </p>
+            <ul class="text-gray-400 text-lg mt-4 list-disc list-inside">
+                <li><code>__LINE__</code> representa a linha atual no arquivo do código-fonte.</li>
+                <li><code>__FILE__</code> representa o nome do arquivo.</li>
+                <li><code>__DATE__</code> representa a data de compilação, no formato <code>Mmm dd aaaa</code>.</li>
+                <li><code>__TIME__</code> representa o tempo de compilação, no formato <code>hh:mm:ss</code>.</li>
+            </ul>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center py-6 bg-black mt-10 border-t border-gray-800">
+        <p class="text-gray-400 text-sm">
+            Artigo original: 
+            <a href="https://flaviocopes.pages.dev/books/c-handbook.pdf" target="_blank" class="text-white hover:underline">
+                The C Beginner's Handbook: Learn C Programming Language basics in just a few hours
+            </a>
+        </p>
+        <p class="text-gray-400 text-sm mt-2">
+            Este manual não busca cobrir tudo o que existe em relação ao C. Ele se concentra no básico da linguagem, tentando simplificar os tópicos mais complexos.
+        </p>
+    </footer>
+
+</body>
+</html>

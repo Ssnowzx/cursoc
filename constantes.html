@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Constantes</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Perfect DOS VGA 437';
+            src: url('fonts/PerfectDOSVGA437.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        body {
+            font-family: 'Perfect DOS VGA 437', monospace;
+        }
+        .code-box {
+            background-color: #1e1e1e;
+            border-radius: 8px;
+            padding: 1rem;
+            font-family: 'Fira Code', monospace;
+            color: #d4d4d4;
+            overflow-x: auto;
+        }
+        .code-box code {
+            color: #c678dd; /* Roxo para o código */
+        }
+    </style>
+</head>
+<body class="bg-black text-white">
+
+    <!-- Header -->
+    <header class="text-center py-10 bg-black">
+        <h1 class="text-3xl sm:text-5xl font-bold text-purple-500">Constantes</h1>
+    </header>
+
+    <!-- Conteúdo -->
+    <main class="container mx-auto px-4 py-8">
+        <div class="bg-[#2d2d2d] p-6 rounded-2xl shadow-lg">
+            <!-- Seção 1: Introdução -->
+            <section class="mb-12">
+                <h2 class="text-2xl font-bold text-purple-500 mb-6">Introdução</h2>
+                <p class="text-white text-lg mb-6">
+                    Vamos, agora, falar das constantes.
+                </p>
+                <p class="text-white text-lg mb-6">
+                    Uma constante é declarada de modo semelhante às variáveis, exceto pelo fato de ter a palavra-chave <code>const</code> adicionada antes da declaração. Além disso, você sempre precisará adicionar na declaração um valor específico.
+                </p>
+                <p class="text-white text-lg mb-6">
+                    Por exemplo:
+                </p>
+                <div class="code-box">
+                    <pre><code>const int age = 37;</code></pre>
+                </div>
+                <p class="text-white text-lg mt-4">
+                    Esse código é perfeitamente válido em C, mas é comum declarar as constantes em letra maiúscula, assim:
+                </p>
+                <div class="code-box">
+                    <pre><code>const int AGE = 37;</code></pre>
+                </div>
+                <p class="text-white text-lg mt-4">
+                    É apenas uma convenção, mas pode ajudar muito ao ler ou escrever um programa em C, já que aumenta a legibilidade. Um nome em letras maiúsculas significa que é uma constante, enquanto, em letras minúsculas, temos uma variável.
+                </p>
+            </section>
+
+            <!-- Seção 2: Regras para Nomes de Constantes -->
+            <section class="mb-12">
+                <h2 class="text-2xl font-bold text-purple-500 mb-6">Regras para Nomes de Constantes</h2>
+                <p class="text-white text-lg mb-6">
+                    Um nome de constante segue as mesmas regras dos nomes de variáveis: podem conter letras maiúsculas e minúsculas, algarismos e o caractere de sublinha, mas não pode começar com um algarismo. <code>AGE</code> e <code>Age10</code> são nomes de variável válidos, enquanto <code>1AGE</code> não é.
+                </p>
+            </section>
+
+            <!-- Seção 3: Definindo Constantes com #define -->
+            <section class="mb-12">
+                <h2 class="text-2xl font-bold text-purple-500 mb-6">Definindo Constantes com #define</h2>
+                <p class="text-white text-lg mb-6">
+                    Outra maneira de definir constantes é usando a diretiva <code>#define</code>:
+                </p>
+                <div class="code-box">
+                    <pre><code>#define AGE 37</code></pre>
+                </div>
+                <p class="text-white text-lg mt-4">
+                    Neste caso, não é necessário adicionar um tipo, também não sendo preciso adicionar um sinal de igual <code>=</code>. Você deve omitir o ponto e vírgula do final.
+                </p>
+                <p class="text-white text-lg mt-4">
+                    O compilador do C fará a inferência do tipo a partir do valor especificado, em tempo de compilação.
+                </p>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center py-6 bg-black mt-10 border-t border-gray-800">
+        <p class="text-gray-400 text-sm">
+            Artigo original: 
+            <a href="https://flaviocopes.pages.dev/books/c-handbook.pdf" target="_blank" class="text-white hover:underline">
+                The C Beginner's Handbook: Learn C Programming Language basics in just a few hours
+            </a>
+        </p>
+        <p class="text-gray-400 text-sm mt-2">
+            Este manual não busca cobrir tudo o que existe em relação ao C. Ele se concentra no básico da linguagem, tentando simplificar os tópicos mais complexos.
+        </p>
+    </footer>
+
+</body>
+</html>

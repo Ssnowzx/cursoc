@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variáveis Estáticas em C</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Perfect DOS VGA 437';
+            src: url('fonts/PerfectDOSVGA437.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        body {
+            font-family: 'Perfect DOS VGA 437', monospace;
+        }
+        .code-box {
+            background-color: #1e1e1e;
+            border-radius: 8px;
+            padding: 1rem;
+            font-family: 'Fira Code', monospace;
+            color: #d4d4d4;
+            overflow-x: auto;
+        }
+        .code-box code {
+            color: #c678dd; /* Roxo para o código */
+        }
+    </style>
+</head>
+<body class="bg-black text-white">
+
+    <!-- Header -->
+    <header class="text-center py-10 bg-black">
+        <h1 class="text-3xl sm:text-5xl font-bold text-purple-500">Variáveis Estáticas em C</h1>
+        <p class="mt-4 text-gray-400 text-lg sm:text-2xl">
+            Aprenda sobre variáveis estáticas na linguagem de programação C.
+        </p>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="container mx-auto px-4">
+        <!-- Introdução -->
+        <section class="mb-12">
+            <h2 class="text-2xl sm:text-3xl font-bold text-purple-500 mb-4">Introdução</h2>
+            <p class="text-gray-400 text-lg">
+                Dentro de uma função, você pode inicializar uma variável estática usando a palavra-chave <code>static</code>.
+            </p>
+            <p class="text-gray-400 text-lg mt-4">
+                Eu disse "dentro de uma função", pois as variáveis globais são estáticas por padrão, não havendo a necessidade de adicionar a palavra-chave.
+            </p>
+            <p class="text-gray-400 text-lg mt-4">
+                O que é uma variável estática? Uma variável estática é inicializada se nenhum valor inicial for especificado, e retendo o valor em todas as chamadas da função.
+            </p>
+        </section>
+
+        <!-- Variáveis Estáticas em Funções -->
+        <section class="mb-12">
+            <h2 class="text-2xl sm:text-3xl font-bold text-purple-500 mb-4">Variáveis Estáticas em Funções</h2>
+            <p class="text-gray-400 text-lg">
+                Considere a função a seguir:
+            </p>
+            <div class="code-box">
+                <pre><code>int aumentarIdade() {
+  int idade = 0;
+  idade++;
+  return idade;
+}</code></pre>
+            </div>
+            <p class="text-gray-400 text-lg mt-4">
+                Se chamarmos <code>aumentarIdade()</code> uma vez, teremos <code>1</code> como valor de retorno. Se a chamarmos mais de uma vez, receberemos sempre <code>1</code> como retorno, pois <code>idade</code> é uma variável local e reinicializada como <code>0</code> em cada chamada de função.
+            </p>
+            <p class="text-gray-400 text-lg mt-4">
+                Se alterarmos a função para:
+            </p>
+            <div class="code-box">
+                <pre><code>int aumentarIdade() {
+  static int idade = 0;
+  idade++;
+  return idade;
+}</code></pre>
+            </div>
+            <p class="text-gray-400 text-lg mt-4">
+                Agora, toda vez que chamarmos essa função, teremos um valor aumentado em um:
+            </p>
+            <div class="code-box">
+                <pre><code>printf("%d\n", aumentarIdade());
+printf("%d\n", aumentarIdade());
+printf("%d\n", aumentarIdade());</code></pre>
+            </div>
+            <p class="text-gray-400 text-lg mt-4">
+                retornará:
+            </p>
+            <div class="code-box">
+                <pre><code>1
+2
+3</code></pre>
+            </div>
+            <p class="text-gray-400 text-lg mt-4">
+                Também podemos omitir a inicialização de <code>idade</code> como <code>0</code> em <code>static int idade = 0;</code> e simplesmente escrever <code>static int idade;</code>, pois variáveis estáticas são definidas automaticamente como <code>0</code> ao serem criadas.
+            </p>
+        </section>
+
+        <!-- Arrays Estáticos -->
+        <section class="mb-12">
+            <h2 class="text-2xl sm:text-3xl font-bold text-purple-500 mb-4">Arrays Estáticos</h2>
+            <p class="text-gray-400 text-lg">
+                Também podemos ter arrays estáticos. Nesse caso, cada item do array é inicializado com <code>0</code>:
+            </p>
+            <div class="code-box">
+                <pre><code>int aumentarIdade() {
+  static int idades[3];
+  idades[0]++;
+  return idades[0];
+}</code></pre>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center py-6 bg-black mt-10 border-t border-gray-800">
+        <p class="text-gray-400 text-sm">
+            Artigo original: 
+            <a href="https://flaviocopes.pages.dev/books/c-handbook.pdf" target="_blank" class="text-white hover:underline">
+                The C Beginner's Handbook: Learn C Programming Language basics in just a few hours
+            </a>
+        </p>
+        <p class="text-gray-400 text-sm mt-2">
+            Este manual não busca cobrir tudo o que existe em relação ao C. Ele se concentra no básico da linguagem, tentando simplificar os tópicos mais complexos.
+        </p>
+    </footer>
+
+</body>
+</html>

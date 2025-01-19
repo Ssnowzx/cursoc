@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estruturas em C</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Perfect DOS VGA 437';
+            src: url('fonts/PerfectDOSVGA437.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        body {
+            font-family: 'Perfect DOS VGA 437', monospace;
+        }
+        .code-box {
+            background-color: #1e1e1e;
+            border-radius: 8px;
+            padding: 1rem;
+            font-family: 'Fira Code', monospace;
+            color: #d4d4d4;
+            overflow-x: auto;
+        }
+        .code-box code {
+            color: #c678dd; /* Roxo para o código */
+        }
+    </style>
+</head>
+<body class="bg-black text-white">
+
+    <!-- Header -->
+    <header class="text-center py-10 bg-black">
+        <h1 class="text-3xl sm:text-5xl font-bold text-purple-500">Estruturas em C</h1>
+        <p class="mt-4 text-gray-400 text-lg sm:text-2xl">
+            Aprenda sobre estruturas na linguagem de programação C.
+        </p>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="container mx-auto px-4">
+        <!-- Introdução -->
+        <section class="mb-12">
+            <h2 class="text-2xl sm:text-3xl font-bold text-purple-500 mb-4">Introdução</h2>
+            <p class="text-gray-400 text-lg">
+                Usando a palavra-chave <code>struct</code>, podemos criar estruturas de dados complexas por meio dos tipos básicos em C.
+            </p>
+            <p class="text-gray-400 text-lg mt-4">
+                Uma estrutura é uma coleção de valores de diferentes tipos. Arrays em C são limitados a um tipo, de modo que as estruturas podem se tornar bastante interessantes em muitos casos de uso.
+            </p>
+            <p class="text-gray-400 text-lg mt-4">
+                Aqui vemos a sintaxe de uma estrutura:
+            </p>
+            <div class="code-box">
+                <pre><code>struct &lt;nome_da_estrutura&gt; {
+  //...variáveis
+};</code></pre>
+            </div>
+        </section>
+
+        <!-- Exemplo de Estrutura -->
+        <section class="mb-12">
+            <h2 class="text-2xl sm:text-3xl font-bold text-purple-500 mb-4">Exemplo de Estrutura</h2>
+            <p class="text-gray-400 text-lg">
+                Exemplo de uma estrutura:
+            </p>
+            <div class="code-box">
+                <pre><code>struct pessoa {
+  int idade;
+  char *nome;
+};</code></pre>
+            </div>
+            <p class="text-gray-400 text-lg mt-4">
+                Você pode declarar variáveis que tenham como tipo aquela estrutura adicionando-as após a chave de fechamento, antes do ponto e vírgula, assim:
+            </p>
+            <div class="code-box">
+                <pre><code>struct pessoa {
+  int idade;
+  char *nome;
+} flavio;</code></pre>
+            </div>
+            <p class="text-gray-400 text-lg mt-4">
+                Ou diversas variáveis, assim:
+            </p>
+            <div class="code-box">
+                <pre><code>struct pessoa {
+  int idade;
+  char *nome;
+} flavio, pessoas[20];</code></pre>
+            </div>
+            <p class="text-gray-400 text-lg mt-4">
+                Nesse caso, eu declaro uma única variável pessoa, chamada <code>flavio</code>, e um array com 20 variáveis do tipo <code>pessoa</code>, chamado <code>pessoas</code>.
+            </p>
+        </section>
+
+        <!-- Declaração e Inicialização de Estruturas -->
+        <section class="mb-12">
+            <h2 class="text-2xl sm:text-3xl font-bold text-purple-500 mb-4">Declaração e Inicialização de Estruturas</h2>
+            <p class="text-gray-400 text-lg">
+                Também podemos declarar variáveis mais tarde, usando essa sintaxe:
+            </p>
+            <div class="code-box">
+                <pre><code>struct pessoa {
+  int idade;
+  char *nome;
+};
+
+struct pessoa flavio;</code></pre>
+            </div>
+            <p class="text-gray-400 text-lg mt-4">
+                Podemos inicializar uma estrutura no momento da declaração:
+            </p>
+            <div class="code-box">
+                <pre><code>struct pessoa {
+  int idade;
+  char *nome;
+};
+
+struct pessoa flavio = { 37, "Flavio" };</code></pre>
+            </div>
+            <p class="text-gray-400 text-lg mt-4">
+                E quando tivermos uma estrutura definida, podemos acessar os valores nela usando um ponto:
+            </p>
+            <div class="code-box">
+                <pre><code>struct pessoa {
+  int idade;
+  char *nome;
+};
+
+struct pessoa flavio = { 37, "Flavio" };
+printf("%s, idade %u", flavio.nome, flavio.idade);</code></pre>
+            </div>
+            <p class="text-gray-400 text-lg mt-4">
+                Também podemos alterar os valores usando a sintaxe do ponto:
+            </p>
+            <div class="code-box">
+                <pre><code>struct pessoa {
+  int idade;
+  char *nome;
+};
+
+struct pessoa flavio = { 37, "Flavio" };
+
+flavio.idade = 38;</code></pre>
+            </div>
+        </section>
+
+        <!-- Estruturas com typedef -->
+        <section class="mb-12">
+            <h2 class="text-2xl sm:text-3xl font-bold text-purple-500 mb-4">Estruturas com <code>typedef</code></h2>
+            <p class="text-gray-400 text-lg">
+                Usando <code>typedef</code>, podemos simplificar o código ao trabalhar com estruturas.
+            </p>
+            <p class="text-gray-400 text-lg mt-4">
+                Vejamos um exemplo:
+            </p>
+            <div class="code-box">
+                <pre><code>typedef struct {
+  int idade;
+  char *nome;
+} PESSOA;</code></pre>
+            </div>
+            <p class="text-gray-400 text-lg mt-4">
+                A estrutura que criamos usando <code>typedef</code>, em geral, por convenção, fica em maiúsculas.
+            </p>
+            <p class="text-gray-400 text-lg mt-4">
+                Agora, podemos declarar novas variáveis <code>PESSOA</code> assim:
+            </p>
+            <div class="code-box">
+                <pre><code>PESSOA flavio;</code></pre>
+            </div>
+            <p class="text-gray-400 text-lg mt-4">
+                E podemos inicializá-las no momento da declaração, assim:
+            </p>
+            <div class="code-box">
+                <pre><code>PESSOA flavio = { 37, "Flavio" };</code></pre>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center py-6 bg-black mt-10 border-t border-gray-800">
+        <p class="text-gray-400 text-sm">
+            Artigo original: 
+            <a href="https://flaviocopes.pages.dev/books/c-handbook.pdf" target="_blank" class="text-white hover:underline">
+                The C Beginner's Handbook: Learn C Programming Language basics in just a few hours
+            </a>
+        </p>
+        <p class="text-gray-400 text-sm mt-2">
+            Este manual não busca cobrir tudo o que existe em relação ao C. Ele se concentra no básico da linguagem, tentando simplificar os tópicos mais complexos.
+        </p>
+    </footer>
+
+</body>
+</html>

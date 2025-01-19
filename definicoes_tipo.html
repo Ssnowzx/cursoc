@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Definições de Tipo em C</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Perfect DOS VGA 437';
+            src: url('fonts/PerfectDOSVGA437.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        body {
+            font-family: 'Perfect DOS VGA 437', monospace;
+        }
+        .code-box {
+            background-color: #1e1e1e;
+            border-radius: 8px;
+            padding: 1rem;
+            font-family: 'Fira Code', monospace;
+            color: #d4d4d4;
+            overflow-x: auto;
+        }
+        .code-box code {
+            color: #c678dd; /* Roxo para o código */
+        }
+    </style>
+</head>
+<body class="bg-black text-white">
+
+    <!-- Header -->
+    <header class="text-center py-10 bg-black">
+        <h1 class="text-3xl sm:text-5xl font-bold text-purple-500">Definições de Tipo em C</h1>
+        <p class="mt-4 text-gray-400 text-lg sm:text-2xl">
+            Aprenda sobre definições de tipo na linguagem de programação C.
+        </p>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="container mx-auto px-4">
+        <!-- Introdução -->
+        <section class="mb-12">
+            <h2 class="text-2xl sm:text-3xl font-bold text-purple-500 mb-4">Introdução</h2>
+            <p class="text-gray-400 text-lg">
+                A palavra-chave <code>typedef</code> em C permite que você defina tipos novos.
+            </p>
+            <p class="text-gray-400 text-lg mt-4">
+                Partindo dos tipos integrados em C, podemos criar nossos próprios tipos, usando a sintaxe abaixo:
+            </p>
+            <div class="code-box">
+                <pre><code>typedef tipoExistente NOVOTIPO</code></pre>
+            </div>
+            <p class="text-gray-400 text-lg mt-4">
+                O novo tipo que criamos, em geral, estará em maiúsculas. Isso serve para distingui-lo mais facilmente e para que o reconheçamos imediatamente como um tipo.
+            </p>
+        </section>
+
+        <!-- Exemplo de typedef -->
+        <section class="mb-12">
+            <h2 class="text-2xl sm:text-3xl font-bold text-purple-500 mb-4">Exemplo de <code>typedef</code></h2>
+            <p class="text-gray-400 text-lg">
+                Por exemplo, podemos definir um novo tipo <code>NUMBER</code> como um <code>int</code>:
+            </p>
+            <div class="code-box">
+                <pre><code>typedef int NUMBER;</code></pre>
+            </div>
+            <p class="text-gray-400 text-lg mt-4">
+                E, ao fazer isso, podemos definir novas variáveis <code>NUMBER</code>:
+            </p>
+            <div class="code-box">
+                <pre><code>NUMBER um = 1;</code></pre>
+            </div>
+            <p class="text-gray-400 text-lg mt-4">
+                Você pode estar se perguntando: para quê? Por que não usar simplesmente o tipo integrado <code>int</code> em vez disso?
+            </p>
+            <p class="text-gray-400 text-lg mt-4">
+                Bem, <code>typedef</code> passa a ser realmente útil quando associado a outros dois conceitos: tipos enumerados e estruturas.
+            </p>
+        </section>
+
+        <!-- Uso Avançado de typedef -->
+        <section class="mb-12">
+            <h2 class="text-2xl sm:text-3xl font-bold text-purple-500 mb-4">Uso Avançado de <code>typedef</code></h2>
+            <p class="text-gray-400 text-lg">
+                O <code>typedef</code> é especialmente útil quando combinado com tipos enumerados (<code>enum</code>) e estruturas (<code>struct</code>). Ele permite criar tipos personalizados que podem simplificar a leitura e a manutenção do código.
+            </p>
+            <p class="text-gray-400 text-lg mt-4">
+                Por exemplo, ao definir uma estrutura:
+            </p>
+            <div class="code-box">
+                <pre><code>typedef struct {
+    int x;
+    int y;
+} Ponto;</code></pre>
+            </div>
+            <p class="text-gray-400 text-lg mt-4">
+                Agora, podemos declarar variáveis do tipo <code>Ponto</code> de forma mais clara:
+            </p>
+            <div class="code-box">
+                <pre><code>Ponto p1;
+p1.x = 10;
+p1.y = 20;</code></pre>
+            </div>
+            <p class="text-gray-400 text-lg mt-4">
+                Isso torna o código mais legível e organizado.
+            </p>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center py-6 bg-black mt-10 border-t border-gray-800">
+        <p class="text-gray-400 text-sm">
+            Artigo original: 
+            <a href="https://flaviocopes.pages.dev/books/c-handbook.pdf" target="_blank" class="text-white hover:underline">
+                The C Beginner's Handbook: Learn C Programming Language basics in just a few hours
+            </a>
+        </p>
+        <p class="text-gray-400 text-sm mt-2">
+            Este manual não busca cobrir tudo o que existe em relação ao C. Ele se concentra no básico da linguagem, tentando simplificar os tópicos mais complexos.
+        </p>
+    </footer>
+
+</body>
+</html>

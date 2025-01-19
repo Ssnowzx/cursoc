@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Condicionais em C</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Perfect DOS VGA 437';
+            src: url('fonts/PerfectDOSVGA437.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        body {
+            font-family: 'Perfect DOS VGA 437', monospace;
+        }
+        .code-box {
+            background-color: #1e1e1e;
+            border-radius: 8px;
+            padding: 1rem;
+            font-family: 'Fira Code', monospace;
+            color: #d4d4d4;
+            overflow-x: auto;
+        }
+        .code-box code {
+            color: #c678dd; /* Roxo para o código */
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+        th, td {
+            border: 1px solid #444;
+            padding: 0.75rem;
+            text-align: left;
+        }
+        th {
+            background-color: #2d2d2d;
+            color: #c678dd; /* Roxo para os cabeçalhos */
+        }
+        td {
+            background-color: #1e1e1e;
+            color: #d4d4d4;
+        }
+    </style>
+</head>
+<body class="bg-black text-white">
+
+    <!-- Header -->
+    <header class="text-center py-10 bg-black">
+        <h1 class="text-3xl sm:text-5xl font-bold text-purple-500">Condicionais em C</h1>
+        <p class="mt-4 text-gray-400 text-lg sm:text-2xl">
+            Aprenda sobre condicionais na linguagem de programação C.
+        </p>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="container mx-auto px-4">
+        <!-- Introdução -->
+        <section class="mb-12">
+            <h2 class="text-2xl sm:text-3xl font-bold text-purple-500 mb-4">Introdução</h2>
+            <p class="text-gray-400 text-lg">
+                Todas as linguagens de programação fornecem aos programadores a capacidade de realizar escolhas.
+            </p>
+            <p class="text-gray-400 text-lg mt-4">
+                Em alguns casos, queremos realizar a ação X. Em outros, a ação Y.
+            </p>
+            <p class="text-gray-400 text-lg mt-4">
+                Queremos verificar os dados e fazer escolhas com base no estado desses dados.
+            </p>
+            <p class="text-gray-400 text-lg mt-4">
+                O C nos fornece duas maneiras de fazer isso:
+            </p>
+            <ul class="list-disc list-inside text-gray-400 text-lg mt-4">
+                <li>A instrução <code>if</code>, com seu auxiliar <code>else</code>.</li>
+                <li>A instrução <code>switch</code>.</li>
+            </ul>
+        </section>
+
+        <!-- Instrução if -->
+        <section class="mb-12">
+            <h2 class="text-2xl sm:text-3xl font-bold text-purple-500 mb-4">Instrução <code>if</code></h2>
+            <p class="text-gray-400 text-lg">
+                Em uma instrução <code>if</code> (se, em português), você pode conferir se uma condição é verdadeira e executar o bloco fornecido entre chaves:
+            </p>
+            <div class="code-box">
+                <pre><code>int a = 1;
+
+if (a == 1) {
+  /* Realizar uma ação */
+}</code></pre>
+            </div>
+            <p class="text-gray-400 text-lg mt-4">
+                Você pode anexar um bloco <code>else</code> (senão, em português) para executar um bloco diferente se a condição não for verdadeira (em outras palavras, se ela for falsa):
+            </p>
+            <div class="code-box">
+                <pre><code>int a = 1;
+
+if (a == 2) {
+  /* Realizar uma ação */
+} else {
+  /* Realizar outra ação, caso contrário */
+}</code></pre>
+            </div>
+            <p class="text-gray-400 text-lg mt-4">
+                <strong>Cuidado:</strong> Sempre use o operador de comparação <code>==</code> para fazer comparações, não o operador de atribuição <code>=</code>. Do contrário, a verificação do condicional <code>if</code> será sempre verdadeira, a menos que o argumento seja <code>0</code>. Por exemplo:
+            </p>
+            <div class="code-box">
+                <pre><code>int a = 0;
+
+if (a = 0) {
+  /* O que estiver aqui nunca será chamado */
+}</code></pre>
+            </div>
+            <p class="text-gray-400 text-lg mt-4">
+                Por que isso acontece? Porque a verificação do condicional buscará um resultado booleano (<code>true</code>/<code>false</code>, verdadeiro ou falso, o resultado de uma comparação). O número <code>0</code> sempre será igual ao valor <code>false</code>. Todo o resto será igual a <code>true</code>, incluindo números negativos.
+            </p>
+            <p class="text-gray-400 text-lg mt-4">
+                Você também pode ter diversos blocos de <code>else</code> empilhando-os na forma de instruções <code>else if</code>:
+            </p>
+            <div class="code-box">
+                <pre><code>int a = 1;
+
+if (a == 2) {
+  /* Realizar uma ação */
+} else if (a == 1) {
+  /* Realizar outra ação */
+} else {
+  /* Realizar uma terceira ação */
+}</code></pre>
+            </div>
+        </section>
+
+        <!-- Instrução switch -->
+        <section class="mb-12">
+            <h2 class="text-2xl sm:text-3xl font-bold text-purple-500 mb-4">Instrução <code>switch</code></h2>
+            <p class="text-gray-400 text-lg">
+                Caso precise fazer muitos blocos <code>if</code>/<code>else</code>/<code>else if</code> para realizar uma verificação, talvez por precisar verificar o valor exato de uma variável, a instrução <code>switch</code> (algo como chave em português) pode ser bastante útil para você.
+            </p>
+            <p class="text-gray-400 text-lg mt-4">
+                Você pode fornecer uma variável como condição e uma série de pontos de entrada <code>case</code> (caso, em português) para cada valor que você espera:
+            </p>
+            <div class="code-box">
+                <pre><code>int a = 1;
+
+switch (a) {
+  case 0:
+    /* Realizar uma ação */
+    break;
+  case 1:
+    /* Realizar outra ação */
+    break;
+  case 2:
+    /* Realizar outra ação */
+    break;
+}</code></pre>
+            </div>
+            <p class="text-gray-400 text-lg mt-4">
+                Precisamos usar a palavra-chave <code>break</code> ao final de cada <code>case</code> para evitar que o próximo <code>case</code> seja executado depois de o anterior ter sido concluído. Esse efeito "cascata" pode ser útil de maneiras bastante criativas.
+            </p>
+            <p class="text-gray-400 text-lg mt-4">
+                Você pode usar um <code>case</code> que valha para várias situações ao final, chamado de <code>default</code>:
+            </p>
+            <div class="code-box">
+                <pre><code>int a = 1;
+
+switch (a) {
+  case 0:
+    /* Realizar uma ação */
+    break;
+  case 1:
+    /* Realizar outra ação */
+    break;
+  case 2:
+    /* Realizar outra ação */
+    break;
+  default:
+    /* Para todos os outros casos */
+    break;
+}</code></pre>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center py-6 bg-black mt-10 border-t border-gray-800">
+        <p class="text-gray-400 text-sm">
+            Artigo original: 
+            <a href="https://flaviocopes.pages.dev/books/c-handbook.pdf" target="_blank" class="text-white hover:underline">
+                The C Beginner's Handbook: Learn C Programming Language basics in just a few hours
+            </a>
+        </p>
+        <p class="text-gray-400 text-sm mt-2">
+            Este manual não busca cobrir tudo o que existe em relação ao C. Ele se concentra no básico da linguagem, tentando simplificar os tópicos mais complexos.
+        </p>
+    </footer>
+
+</body>
+</html>

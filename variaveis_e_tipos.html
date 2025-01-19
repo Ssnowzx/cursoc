@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variáveis e Tipos</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Perfect DOS VGA 437';
+            src: url('fonts/PerfectDOSVGA437.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        body {
+            font-family: 'Perfect DOS VGA 437', monospace;
+        }
+        .code-box {
+            background-color: #1e1e1e;
+            border-radius: 8px;
+            padding: 1rem;
+            font-family: 'Fira Code', monospace;
+            color: #d4d4d4;
+            overflow-x: auto;
+        }
+        .code-box code {
+            color: #c678dd; /* Roxo para o código */
+        }
+    </style>
+</head>
+<body class="bg-black text-white">
+
+    <!-- Header -->
+    <header class="text-center py-10 bg-black">
+        <h1 class="text-3xl sm:text-5xl font-bold text-purple-500">Variáveis e Tipos</h1>
+    </header>
+
+    <!-- Conteúdo -->
+    <main class="container mx-auto px-4 py-8">
+        <div class="bg-[#2d2d2d] p-6 rounded-2xl shadow-lg">
+            <!-- Seção 1: Introdução -->
+            <section class="mb-12">
+                <h2 class="text-2xl font-bold text-purple-500 mb-6">Introdução</h2>
+                <p class="text-white text-lg mb-6">
+                    C é uma linguagem estaticamente tipada. Isso significa que todas as variáveis têm um tipo associado, e esse tipo é conhecido em tempo de compilação.
+                </p>
+                <p class="text-white text-lg mb-6">
+                    É bem diferente da maneira como trabalhamos com variáveis em Python, JavaScript, PHP e outras linguagens interpretadas.
+                </p>
+                <p class="text-white text-lg mb-6">
+                    Ao criar uma variável em C, você tem de especificar o tipo da variável na declaração. Por exemplo:
+                </p>
+                <div class="code-box">
+                    <pre><code>int age;</code></pre>
+                </div>
+                <p class="text-white text-lg mt-4">
+                    O nome de uma variável pode conter letras maiúsculas e minúsculas, algarismos e o caractere de sublinha (underscore, em inglês), mas não podem começar por um algarismo. <code>AGE</code> e <code>Age10</code> são nomes válidos para variáveis, mas <code>1age</code> não é.
+                </p>
+            </section>
+
+            <!-- Seção 2: Inicialização de Variáveis -->
+            <section class="mb-12">
+                <h2 class="text-2xl font-bold text-purple-500 mb-6">Inicialização de Variáveis</h2>
+                <p class="text-white text-lg mb-6">
+                    Você também pode iniciar uma variável no momento da declaração, especificando seu valor inicial:
+                </p>
+                <div class="code-box">
+                    <pre><code>int age = 37;</code></pre>
+                </div>
+                <p class="text-white text-lg mt-4">
+                    Ao declarar uma variável, você pode usá-la no código do programa. Você pode alterar seu valor a qualquer momento, usando o operador <code>=</code>, por exemplo, como em <code>age = 100;</code> (contanto que o novo valor seja do mesmo tipo).
+                </p>
+                <p class="text-white text-lg mt-4">
+                    Neste caso:
+                </p>
+                <div class="code-box">
+                    <pre><code>#include &lt;stdio.h&gt;
+
+int main(void) {
+    int age = 0;
+    age = 37.2;
+    printf("%u", age);
+}</code></pre>
+                </div>
+                <p class="text-white text-lg mt-4">
+                    o compilador lançará um aviso no momento da compilação e converterá o número decimal em um valor inteiro.
+                </p>
+            </section>
+
+            <!-- Seção 3: Tipos de Dados Integrados -->
+            <section class="mb-12">
+                <h2 class="text-2xl font-bold text-purple-500 mb-6">Tipos de Dados Integrados</h2>
+                <p class="text-white text-lg mb-6">
+                    Os tipos de dados integrados do C são <code>int</code>, <code>char</code>, <code>short</code>, <code>long</code>, <code>float</code>, <code>double</code> e <code>long double</code>. Vejamos um pouco mais a respeito deles.
+                </p>
+
+                <!-- Subseção: Números Inteiros -->
+                <h3 class="text-xl font-bold text-purple-500 mb-4">Números Inteiros</h3>
+                <p class="text-white text-lg mb-6">
+                    O C nos fornece os seguintes tipos para que possamos definir valores inteiros:
+                </p>
+                <ul class="text-white text-lg mb-6 list-disc list-inside">
+                    <li><code>char</code></li>
+                    <li><code>int</code></li>
+                    <li><code>short</code></li>
+                    <li><code>long</code></li>
+                </ul>
+                <p class="text-white text-lg mb-6">
+                    Na maior parte das vezes, você provavelmente usará um <code>int</code> para armazenar um número inteiro. Em alguns casos, no entanto, você pode querer escolher uma das outras três opções.
+                </p>
+                <p class="text-white text-lg mb-6">
+                    O tipo <code>char</code> normalmente é usado para armazenar letras da tabela ASCII, mas pode ser usado para conter números inteiros pequenos, entre -128 e 127. Ele ocupa menos de 1 byte.
+                </p>
+                <p class="text-white text-lg mb-6">
+                    <code>int</code> ocupa pelo menos 2 bytes. <code>short</code> ocupa pelo menos 2 bytes. <code>long</code> ocupa pelo menos 4 bytes.
+                </p>
+                <p class="text-white text-lg mb-6">
+                    Como você pode ver, não temos a garantia dos mesmos valores para ambientes diferentes. Temos apenas uma indicação. O problema é que os números exatos que podem ser armazenados em cada tipo de dados dependem da implementação e da arquitetura.
+                </p>
+                <p class="text-white text-lg mb-6">
+                    O que temos garantido é que <code>short</code> não é maior do que <code>int</code> e que <code>long</code> não é menor do que <code>int</code>.
+                </p>
+                <p class="text-white text-lg mb-6">
+                    O padrão das especificações ANSI C determina os valores mínimos para cada tipo. Graças a isso, podemos ao menos saber qual é o valor mínimo que podemos esperar ter à nossa disposição.
+                </p>
+                <p class="text-white text-lg mb-6">
+                    Se você estiver programando em C em um Arduino, placas de circuito diferentes terão limites diferentes.
+                </p>
+                <p class="text-white text-lg mb-6">
+                    Em uma placa Arduino Uno, <code>int</code> armazena um valor de 2 bytes, indo de -32,768 a 32,767. Em uma placa Arduino MKR 1010, <code>int</code> armazena um valor de 4 bytes, indo de -2,147,483,648 a 2,147,483,647, o que traz uma grande diferença.
+                </p>
+                <p class="text-white text-lg mb-6">
+                    Em todas as placas Arduino, <code>short</code> armazena um valor de 2 bytes, indo de -32,768 a 32,767. <code>long</code> armazena 4 bytes, indo de -2,147,483,648 a 2,147,483,647.
+                </p>
+
+                <!-- Subseção: Números Inteiros Sem Sinal -->
+                <h3 class="text-xl font-bold text-purple-500 mb-4">Números Inteiros Sem Sinal</h3>
+                <p class="text-white text-lg mb-6">
+                    Para todos os tipos de dados acima, podemos anexar antes deles a expressão <code>unsigned</code> (em português, sem sinal) para iniciar o intervalo em 0, em vez de em um número negativo. Isso pode fazer sentido em diversos casos.
+                </p>
+                <ul class="text-white text-lg mb-6 list-disc list-inside">
+                    <li><code>unsigned char</code> irá de 0 a pelo menos 255</li>
+                    <li><code>unsigned int</code> irá de 0 a pelo menos 65,535</li>
+                    <li><code>unsigned short</code> irá de 0 a pelo menos 65,535</li>
+                    <li><code>unsigned long</code> irá de 0 a pelo menos 4,294,967,295</li>
+                </ul>
+                <p class="text-white text-lg mb-6">
+                    O problema com o overflow:
+                </p>
+                <p class="text-white text-lg mb-6">
+                    Em função de todos esses limites, pode surgir uma pergunta: como podemos nos certificar de que nossos números não excedem o limite? O que acontece se excedermos o limite?
+                </p>
+                <p class="text-white text-lg mb-6">
+                    Se você tem um número <code>unsigned int</code> de 255 e somar mais um a ele, terá um retorno de 256, conforme o esperado. Se tiver um número <code>unsigned char</code> de 255 e somar mais um a ele, terá um retorno de 0. Ele retornará ao valor inicial possível.
+                </p>
+                <p class="text-white text-lg mb-6">
+                    Se você tiver um número <code>unsigned char</code> de 255 e adicionar 10 a ele, chegará ao número 9:
+                </p>
+                <div class="code-box">
+                    <pre><code>#include &lt;stdio.h&gt;
+
+int main(void) {
+  unsigned char j = 255;
+  j = j + 10;
+  printf("%u", j); /* 9 */
+}</code></pre>
+                </div>
+                <p class="text-white text-lg mt-4">
+                    Se você não tiver um valor com sinal, o comportamento é indefinido. Ele, basicamente, fornecerá um número enorme e que pode variar, como neste caso:
+                </p>
+                <div class="code-box">
+                    <pre><code>#include &lt;stdio.h&gt;
+
+int main(void) {
+  char j = 127;
+  j = j + 10;
+  printf("%u", j); /* 4294967177 */
+}</code></pre>
+                </div>
+                <p class="text-white text-lg mt-4">
+                    Em outras palavras, o C não protege você de passar dos limites de um tipo. Você é quem deve se preocupar com essa questão.
+                </p>
+            </section>
+
+            <!-- Seção 4: Avisos ao Declarar o Tipo Errado -->
+            <section class="mb-12">
+                <h2 class="text-2xl font-bold text-purple-500 mb-6">Avisos ao Declarar o Tipo Errado</h2>
+                <p class="text-white text-lg mb-6">
+                    Ao declarar a variável e inicializá-la com um valor do tipo incorreto, o compilador <code>gcc</code> (o que você provavelmente usará) deverá dar um aviso semelhante a este:
+                </p>
+                <div class="code-box">
+                    <pre><code>#include &lt;stdio.h&gt;
+
+int main(void) {
+  char j = 1000;
+}</code></pre>
+                </div>
+                <p class="text-white text-lg mt-4">
+                    Ele também avisará você no caso de atribuições diretas:
+                </p>
+                <div class="code-box">
+                    <pre><code>#include &lt;stdio.h&gt;
+
+int main(void) {
+  char j;
+  j = 1000;
+}</code></pre>
+                </div>
+                <p class="text-white text-lg mt-4">
+                    Ele não fará isso, porém, se você aumentar o número usando, por exemplo, <code>+=</code>:
+                </p>
+                <div class="code-box">
+                    <pre><code>#include &lt;stdio.h&gt;
+
+int main(void) {
+  char j = 0;
+  j += 1000;
+}</code></pre>
+                </div>
+            </section>
+
+            <!-- Seção 5: Números de Ponto Flutuante -->
+            <section class="mb-12">
+                <h2 class="text-2xl font-bold text-purple-500 mb-6">Números de Ponto Flutuante</h2>
+                <p class="text-white text-lg mb-6">
+                    Os tipos de ponto flutuante (<code>float</code>, <code>double</code> e <code>long double</code>) podem representar um conjunto muito maior de valores do que os inteiros, podendo, também, representar frações, algo que os números inteiros não conseguem fazer.
+                </p>
+                <p class="text-white text-lg mb-6">
+                    Ao usar números de ponto flutuante, representamos números como decimais na potência de 10.
+                </p>
+                <p class="text-white text-lg mb-6">
+                    Você poderá ver números de ponto flutuante escritos assim:
+                </p>
+                <div class="code-box">
+                    <pre><code>1.29e-3
+-2.3e+5</code></pre>
+                </div>
+                <p class="text-white text-lg mt-4">
+                    além de outros escritos de maneira estranha.
+                </p>
+                <p class="text-white text-lg mb-6">
+                    Os tipos:
+                </p>
+                <ul class="text-white text-lg mb-6 list-disc list-inside">
+                    <li><code>float</code></li>
+                    <li><code>double</code></li>
+                    <li><code>long double</code></li>
+                </ul>
+                <p class="text-white text-lg mb-6">
+                    são usados para representar números com pontos decimais (tipos de ponto flutuante). Todos podem representar números positivos e negativos.
+                </p>
+                <p class="text-white text-lg mb-6">
+                    Os requisitos mínimos para qualquer implementação em C são de que <code>float</code> possa representar um intervalo entre 10^-37 e 10^+37, sendo tipicamente implementados usando 32 bits. <code>double</code> pode representar um conjunto mais de números. <code>long double</code> pode ter ainda mais números.
+                </p>
+                <p class="text-white text-lg mb-6">
+                    Os valores exatos, assim como ocorre com os números inteiros, dependem da implementação.
+                </p>
+                <p class="text-white text-lg mb-6">
+                    Em um Mac moderno, um <code>float</code> é representado por 32 bits, tendo uma precisão de 24 bits significativos. 8 bits são usados para codificar o expoente.
+                </p>
+                <p class="text-white text-lg mb-6">
+                    Um número <code>double</code> é representado por 64 bits, com uma precisão de 53 bits significativos, sendo usados 11 bits para codificar o expoente.
+                </p>
+                <p class="text-white text-lg mb-6">
+                    O tipo <code>long double</code> é representado por 80 bits, tem uma precisão de 64 bits significativos, sendo usados 15 bits para codificar o expoente.
+                </p>
+                <p class="text-white text-lg mb-6">
+                    Em nosso computador especificamente, como podemos determinar o tamanho dos tipos? Você pode escrever um programa que faça isso por você:
+                </p>
+                <div class="code-box">
+                    <pre><code>#include &lt;stdio.h&gt;
+
+int main(void) {
+  printf("Tamanho de char: %lu bytes\n", sizeof(char));
+  printf("Tamanho de int: %lu bytes\n", sizeof(int));
+  printf("Tamanho de short: %lu bytes\n", sizeof(short));
+  printf("Tamanho de long: %lu bytes\n", sizeof(long));
+  printf("Tamanho de float: %lu bytes\n", sizeof(float));
+  printf("Tamanho de double: %lu bytes\n", 
+    sizeof(double));
+  printf("Tamanho de long double: %lu bytes\n", 
+    sizeof(long double));
+}</code></pre>
+                </div>
+                <p class="text-white text-lg mt-4">
+                    Em meu sistema, um Mac moderno, veremos:
+                </p>
+                <div class="code-box">
+                    <pre><code>Tamanho de char: 1 bytes
+Tamanho de int: 4 bytes
+Tamanho de short: 2 bytes
+Tamanho de long: 8 bytes
+Tamanho de float: 4 bytes
+Tamanho de double: 8 bytes
+Tamanho de long double: 16 bytes</code></pre>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center py-6 bg-black mt-10 border-t border-gray-800">
+        <p class="text-gray-400 text-sm">
+            Artigo original: 
+            <a href="https://flaviocopes.pages.dev/books/c-handbook.pdf" target="_blank" class="text-white hover:underline">
+                The C Beginner's Handbook: Learn C Programming Language basics in just a few hours
+            </a>
+        </p>
+        <p class="text-gray-400 text-sm mt-2">
+            Este manual não busca cobrir tudo o que existe em relação ao C. Ele se concentra no básico da linguagem, tentando simplificar os tópicos mais complexos.
+        </p>
+    </footer>
+
+</body>
+</html>

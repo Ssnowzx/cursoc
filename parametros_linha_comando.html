@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parâmetros da Linha de Comando em C</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Perfect DOS VGA 437';
+            src: url('fonts/PerfectDOSVGA437.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        body {
+            font-family: 'Perfect DOS VGA 437', monospace;
+        }
+        .code-box {
+            background-color: #1e1e1e;
+            border-radius: 8px;
+            padding: 1rem;
+            font-family: 'Fira Code', monospace;
+            color: #d4d4d4;
+            overflow-x: auto;
+        }
+        .code-box code {
+            color: #c678dd; /* Roxo para o código */
+        }
+    </style>
+</head>
+<body class="bg-black text-white">
+
+    <!-- Header -->
+    <header class="text-center py-10 bg-black">
+        <h1 class="text-3xl sm:text-5xl font-bold text-purple-500">Parâmetros da Linha de Comando em C</h1>
+        <p class="mt-4 text-gray-400 text-lg sm:text-2xl">
+            Aprenda a trabalhar com parâmetros da linha de comando na linguagem de programação C.
+        </p>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="container mx-auto px-4">
+        <!-- Introdução -->
+        <section class="mb-12">
+            <h2 class="text-2xl sm:text-3xl font-bold text-purple-500 mb-4">Introdução</h2>
+            <p class="text-gray-400 text-lg">
+                Em seus programas em C, você pode precisar aceitar parâmetros a partir da linha de comando quando um comando for executado.
+            </p>
+            <p class="text-gray-400 text-lg mt-4">
+                Para necessidades mais simples, tudo o que você precisa fazer é alterar a assinatura da função <code>main()</code> de:
+            </p>
+            <div class="code-box">
+                <pre><code>int main(void)</code></pre>
+            </div>
+            <p class="text-gray-400 text-lg mt-4">
+                Para:
+            </p>
+            <div class="code-box">
+                <pre><code>int main(int argc, char *argv[])</code></pre>
+            </div>
+            <p class="text-gray-400 text-lg mt-4">
+                <code>argc</code> é um número inteiro que contém o número de parâmetros que serão fornecidos na linha de comando.
+            </p>
+            <p class="text-gray-400 text-lg mt-4">
+                <code>argv</code> é um array de strings.
+            </p>
+            <p class="text-gray-400 text-lg mt-4">
+                Quando o programa é iniciado, recebemos os argumentos nesses 2 parâmetros.
+            </p>
+            <p class="text-gray-400 text-lg mt-4">
+                Observe que sempre há ao menos um item no array <code>argv</code>: o nome do programa.
+            </p>
+        </section>
+
+        <!-- Exemplo de Uso -->
+        <section class="mb-12">
+            <h2 class="text-2xl sm:text-3xl font-bold text-purple-500 mb-4">Exemplo de Uso</h2>
+            <p class="text-gray-400 text-lg">
+                Vamos pegar o exemplo do compilador do C que usamos para executar nossos programas, assim:
+            </p>
+            <div class="code-box">
+                <pre><code>gcc hello.c -o hello</code></pre>
+            </div>
+            <p class="text-gray-400 text-lg mt-4">
+                Se esse fosse o nosso programa, teríamos <code>argc</code> com o valor de 4 e <code>argv</code> sendo um array contendo:
+            </p>
+            <div class="code-box">
+                <pre><code>gcc
+hello.c
+-o
+hello</code></pre>
+            </div>
+            <p class="text-gray-400 text-lg mt-4">
+                Vamos escrever um programa que imprima os argumentos que ele recebe:
+            </p>
+            <div class="code-box">
+                <pre><code>#include &lt;stdio.h&gt;
+
+int main(int argc, char *argv[]) {
+  for (int i = 0; i < argc; i++) {
+    printf("%s\n", argv[i]);
+  }
+}</code></pre>
+            </div>
+            <p class="text-gray-400 text-lg mt-4">
+                Se o nome do nosso programa for <code>hello</code> e se o executarmos assim: <code>./hello</code>, teremos, como resultado:
+            </p>
+            <div class="code-box">
+                <pre><code>./hello</code></pre>
+            </div>
+            <p class="text-gray-400 text-lg mt-4">
+                Se passarmos alguns parâmetros aleatórios, assim: <code>./hello a b c</code>, teremos o seguinte resultado no terminal:
+            </p>
+            <div class="code-box">
+                <pre><code>./hello
+a
+b
+c</code></pre>
+            </div>
+        </section>
+
+        <!-- Considerações Finais -->
+        <section class="mb-12">
+            <h2 class="text-2xl sm:text-3xl font-bold text-purple-500 mb-4">Considerações Finais</h2>
+            <p class="text-gray-400 text-lg">
+                Esse sistema funciona muito bem para necessidades simples. Para as mais complexas, existem pacotes usados normalmente, como o <code>getopt</code>.
+            </p>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center py-6 bg-black mt-10 border-t border-gray-800">
+        <p class="text-gray-400 text-sm">
+            Artigo original: 
+            <a href="https://flaviocopes.pages.dev/books/c-handbook.pdf" target="_blank" class="text-white hover:underline">
+                The C Beginner's Handbook: Learn C Programming Language basics in just a few hours
+            </a>
+        </p>
+        <p class="text-gray-400 text-sm mt-2">
+            Este manual não busca cobrir tudo o que existe em relação ao C. Ele se concentra no básico da linguagem, tentando simplificar os tópicos mais complexos.
+        </p>
+    </footer>
+
+</body>
+</html>

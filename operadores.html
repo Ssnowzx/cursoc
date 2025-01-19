@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operadores em C</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Perfect DOS VGA 437';
+            src: url('fonts/PerfectDOSVGA437.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        body {
+            font-family: 'Perfect DOS VGA 437', monospace;
+        }
+        .code-box {
+            background-color: #1e1e1e;
+            border-radius: 8px;
+            padding: 1rem;
+            font-family: 'Fira Code', monospace;
+            color: #d4d4d4;
+            overflow-x: auto;
+        }
+        .code-box code {
+            color: #c678dd; /* Roxo para o código */
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+        th, td {
+            border: 1px solid #444;
+            padding: 0.75rem;
+            text-align: left;
+        }
+        th {
+            background-color: #2d2d2d;
+            color: #c678dd; /* Roxo para os cabeçalhos */
+        }
+        td {
+            background-color: #1e1e1e;
+            color: #d4d4d4;
+        }
+    </style>
+</head>
+<body class="bg-black text-white">
+
+    <!-- Header -->
+    <header class="text-center py-10 bg-black">
+        <h1 class="text-3xl sm:text-5xl font-bold text-purple-500">Operadores em C</h1>
+        <p class="mt-4 text-gray-400 text-lg sm:text-2xl">
+            Aprenda sobre os operadores na linguagem de programação C.
+        </p>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="container mx-auto px-4">
+        <!-- Introdução -->
+        <section class="mb-12">
+            <h2 class="text-2xl sm:text-3xl font-bold text-purple-500 mb-4">Introdução</h2>
+            <p class="text-gray-400 text-lg">
+                O C nos oferece uma grande variedade de operadores que podemos usar para fazer operações com os dados.
+            </p>
+        </section>
+
+        <!-- Tipos de Operadores -->
+        <section class="mb-12">
+            <h2 class="text-2xl sm:text-3xl font-bold text-purple-500 mb-4">Tipos de Operadores</h2>
+            <p class="text-gray-400 text-lg">
+                Especificamente, podemos identificar alguns grupos de operadores:
+            </p>
+            <ul class="list-disc list-inside text-gray-400 text-lg mt-4">
+                <li>Operadores aritméticos</li>
+                <li>Operadores de comparação</li>
+                <li>Operadores lógicos</li>
+                <li>Operadores de atribuição compostos</li>
+                <li>Operadores bitwise</li>
+                <li>Operadores de ponteiro</li>
+                <li>Operadores de estrutura</li>
+                <li>Operadores diversos</li>
+            </ul>
+            <p class="text-gray-400 text-lg mt-4">
+                Nesta seção, detalharei todos eles usando 2 variáveis imaginárias, <span class="code-purple">a</span> e <span class="code-purple">b</span>, como exemplo.
+            </p>
+        </section>
+
+        <!-- Operadores Aritméticos -->
+        <section class="mb-12">
+            <h2 class="text-2xl sm:text-3xl font-bold text-purple-500 mb-4">Operadores Aritméticos</h2>
+            <p class="text-gray-400 text-lg">
+                Neste grupo mais amplo, separarei os operadores binários e os unários.
+            </p>
+
+            <h3 class="text-xl sm:text-2xl font-bold text-purple-500 mt-6 mb-4">Operadores Binários</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>OPERADOR</th>
+                        <th>NOME</th>
+                        <th>EXEMPLO</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>=</td>
+                        <td>Atribuição</td>
+                        <td><code>a = b</code></td>
+                    </tr>
+                    <tr>
+                        <td>+</td>
+                        <td>Adição</td>
+                        <td><code>a + b</code></td>
+                    </tr>
+                    <tr>
+                        <td>-</td>
+                        <td>Subtração</td>
+                        <td><code>a - b</code></td>
+                    </tr>
+                    <tr>
+                        <td>*</td>
+                        <td>Multiplicação</td>
+                        <td><code>a * b</code></td>
+                    </tr>
+                    <tr>
+                        <td>/</td>
+                        <td>Divisão</td>
+                        <td><code>a / b</code></td>
+                    </tr>
+                    <tr>
+                        <td>%</td>
+                        <td>Módulo</td>
+                        <td><code>a % b</code></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 class="text-xl sm:text-2xl font-bold text-purple-500 mt-6 mb-4">Operadores Unários</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>OPERADOR</th>
+                        <th>NOME</th>
+                        <th>EXEMPLO</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>+</td>
+                        <td>Unário de soma</td>
+                        <td><code>+a</code></td>
+                    </tr>
+                    <tr>
+                        <td>-</td>
+                        <td>Unário de subtração</td>
+                        <td><code>-a</code></td>
+                    </tr>
+                    <tr>
+                        <td>++</td>
+                        <td>Incremento</td>
+                        <td><code>a++</code> ou <code>++a</code></td>
+                    </tr>
+                    <tr>
+                        <td>--</td>
+                        <td>Decremento</td>
+                        <td><code>a--</code> ou <code>--a</code></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Operadores de Comparação -->
+        <section class="mb-12">
+            <h2 class="text-2xl sm:text-3xl font-bold text-purple-500 mb-4">Operadores de Comparação</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>OPERADOR</th>
+                        <th>NOME</th>
+                        <th>EXEMPLO</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>==</td>
+                        <td>Operador de igual</td>
+                        <td><code>a == b</code></td>
+                    </tr>
+                    <tr>
+                        <td>!=</td>
+                        <td>Operador de diferente</td>
+                        <td><code>a != b</code></td>
+                    </tr>
+                    <tr>
+                        <td>&gt;</td>
+                        <td>Maior que</td>
+                        <td><code>a &gt; b</code></td>
+                    </tr>
+                    <tr>
+                        <td>&lt;</td>
+                        <td>Menor que</td>
+                        <td><code>a &lt; b</code></td>
+                    </tr>
+                    <tr>
+                        <td>&gt;=</td>
+                        <td>Maior que ou igual a</td>
+                        <td><code>a &gt;= b</code></td>
+                    </tr>
+                    <tr>
+                        <td>&lt;=</td>
+                        <td>Menor que ou igual a</td>
+                        <td><code>a &lt;= b</code></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Operadores Lógicos -->
+        <section class="mb-12">
+            <h2 class="text-2xl sm:text-3xl font-bold text-purple-500 mb-4">Operadores Lógicos</h2>
+            <p class="text-gray-400 text-lg">
+                Esses operadores são ótimos ao se trabalhar com valores booleanos:
+            </p>
+            <ul class="list-disc list-inside text-gray-400 text-lg mt-4">
+                <li><code>!</code> NOT (em português, "não" - exemplo: <code>!a</code>)</li>
+                <li><code>&&</code> AND (em português, "e" - exemplo: <code>a && b</code>)</li>
+                <li><code>||</code> OR (em português, "ou" - exemplo: <code>a || b</code>)</li>
+            </ul>
+        </section>
+
+        <!-- Operadores de Atribuição Compostos -->
+        <section class="mb-12">
+            <h2 class="text-2xl sm:text-3xl font-bold text-purple-500 mb-4">Operadores de Atribuição Compostos</h2>
+            <p class="text-gray-400 text-lg">
+                Esses operadores são úteis para realizar uma atribuição e, ao mesmo tempo, realizar uma operação aritmética:
+            </p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>OPERADOR</th>
+                        <th>NOME</th>
+                        <th>EXEMPLO</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>+=</td>
+                        <td>Atribuição e adição</td>
+                        <td><code>a += b</code></td>
+                    </tr>
+                    <tr>
+                        <td>-=</td>
+                        <td>Atribuição e subtração</td>
+                        <td><code>a -= b</code></td>
+                    </tr>
+                    <tr>
+                        <td>*=</td>
+                        <td>Atribuição e multiplicação</td>
+                        <td><code>a *= b</code></td>
+                    </tr>
+                    <tr>
+                        <td>/=</td>
+                        <td>Atribuição e divisão</td>
+                        <td><code>a /= b</code></td>
+                    </tr>
+                    <tr>
+                        <td>%=</td>
+                        <td>Atribuição e módulo</td>
+                        <td><code>a %= b</code></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Operador Ternário -->
+        <section class="mb-12">
+            <h2 class="text-2xl sm:text-3xl font-bold text-purple-500 mb-4">Operador Ternário</h2>
+            <p class="text-gray-400 text-lg">
+                O operador ternário é o único operador em C que funciona com 3 operandos, sendo um modo abreviado de expressar condicionais.
+            </p>
+            <div class="code-box">
+                <pre><code>&lt;condição&gt; ? &lt;expressão&gt; : &lt;expressão&gt;</code></pre>
+            </div>
+            <p class="text-gray-400 text-lg mt-4">
+                Exemplo:
+            </p>
+            <div class="code-box">
+                <pre><code>a ? b : c</code></pre>
+            </div>
+            <p class="text-gray-400 text-lg mt-4">
+                Se <code>a</code> for avaliado como <code>true</code>, a instrução <code>b</code> será executada. Caso contrário, é executada a instrução <code>c</code>.
+            </p>
+        </section>
+
+        <!-- Operador sizeof -->
+        <section class="mb-12">
+            <h2 class="text-2xl sm:text-3xl font-bold text-purple-500 mb-4">Operador sizeof</h2>
+            <p class="text-gray-400 text-lg">
+                O operador <code>sizeof</code> retorna o tamanho do operando que você passar. É possível passar uma variável ou, até mesmo, um tipo.
+            </p>
+            <p class="text-gray-400 text-lg mt-4">
+                Exemplo de uso:
+            </p>
+            <div class="code-box">
+                <pre><code>#include &lt;stdio.h&gt;
+
+int main(void) {
+  int age = 37;
+  printf("%ld\n", sizeof(age));
+  printf("%ld", sizeof(int));
+}</code></pre>
+            </div>
+        </section>
+
+        <!-- Precedência dos Operadores -->
+        <section class="mb-12">
+            <h2 class="text-2xl sm:text-3xl font-bold text-purple-500 mb-4">Precedência dos Operadores</h2>
+            <p class="text-gray-400 text-lg">
+                Com todos esses operadores (e mais, já que não tratamos de todos neste artigo, incluindo os operadores bitwise, de estrutura e de ponteiro), devemos prestar atenção a quando eles estiverem juntos em uma única expressão.
+            </p>
+            <p class="text-gray-400 text-lg mt-4">
+                Vamos supor que temos esta operação:
+            </p>
+            <div class="code-box">
+                <pre><code>int a = 2;
+int b = 4;
+int c = b + a * a / b - a;</code></pre>
+            </div>
+            <p class="text-gray-400 text-lg mt-4">
+                Qual é o valor de <code>c</code>? A adição é executada antes da multiplicação e da divisão?
+            </p>
+            <p class="text-gray-400 text-lg mt-4">
+                Existe um conjunto de regras que nos ajuda a resolver esse enigma.
+            </p>
+            <p class="text-gray-400 text-lg mt-4">
+                Na ordem de menor precedência para a maior, temos:
+            </p>
+            <ul class="list-disc list-inside text-gray-400 text-lg mt-4">
+                <li>O operador de atribuição <code>=</code></li>
+                <li>Os operadores binários <code>+</code> e <code>-</code></li>
+                <li>Os operadores <code>*</code> e <code>/</code></li>
+                <li>Os operadores <code>+</code> e <code>-</code> unários</li>
+            </ul>
+            <p class="text-gray-400 text-lg mt-4">
+                Os operadores também têm uma regra de associação, que é sempre da esquerda para a direita, exceto para os operadores unários e de atribuição.
+            </p>
+            <p class="text-gray-400 text-lg mt-4">
+                Em:
+            </p>
+            <div class="code-box">
+                <pre><code>int c = b + a * a / b - a;</code></pre>
+            </div>
+            <p class="text-gray-400 text-lg mt-4">
+                Primeiro, executamos <code>a * a / b</code>, que, devido ao fato de ser da esquerda para a direita, separamos em <code>a * a</code> e o resultado <code>/ b</code>: <code>2 * 2 = 4</code>, <code>4 / 4 = 1</code>.
+            </p>
+            <p class="text-gray-400 text-lg mt-4">
+                Depois, realizamos a soma e a subtração: <code>4 + 1 - 2</code>. O valor de <code>c</code> é <code>3</code>.
+            </p>
+            <p class="text-gray-400 text-lg mt-4">
+                Em todos os casos, no entanto, eu gostaria de reforçar que é possível usar os parênteses de modo a tornar expressões semelhantes mais fáceis de ler e de compreender.
+            </p>
+            <p class="text-gray-400 text-lg mt-4">
+                Os parênteses têm maior prioridade sobre todo o resto.
+            </p>
+            <p class="text-gray-400 text-lg mt-4">
+                A expressão do exemplo acima pode ser reescrita assim:
+            </p>
+            <div class="code-box">
+                <pre><code>int c = b + ((a * a) / b) - a;</code></pre>
+            </div>
+            <p class="text-gray-400 text-lg mt-4">
+                E, desse modo, não temos que nos preocupar muito com ela.
+            </p>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center py-6 bg-black mt-10 border-t border-gray-800">
+        <p class="text-gray-400 text-sm">
+            Artigo original: 
+            <a href="https://flaviocopes.pages.dev/books/c-handbook.pdf" target="_blank" class="text-white hover:underline">
+                The C Beginner's Handbook: Learn C Programming Language basics in just a few hours
+            </a>
+        </p>
+        <p class="text-gray-400 text-sm mt-2">
+            Este manual não busca cobrir tudo o que existe em relação ao C. Ele se concentra no básico da linguagem, tentando simplificar os tópicos mais complexos.
+        </p>
+    </footer>
+
+</body>
+</html>

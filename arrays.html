@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays em C</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Perfect DOS VGA 437';
+            src: url('fonts/PerfectDOSVGA437.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        body {
+            font-family: 'Perfect DOS VGA 437', monospace;
+        }
+        .code-box {
+            background-color: #1e1e1e;
+            border-radius: 8px;
+            padding: 1rem;
+            font-family: 'Fira Code', monospace;
+            color: #d4d4d4;
+            overflow-x: auto;
+        }
+        .code-box code {
+            color: #c678dd; /* Roxo para o código */
+        }
+    </style>
+</head>
+<body class="bg-black text-white">
+
+    <!-- Header -->
+    <header class="text-center py-10 bg-black">
+        <h1 class="text-3xl sm:text-5xl font-bold text-purple-500">Arrays em C</h1>
+        <p class="mt-4 text-gray-400 text-lg sm:text-2xl">
+            Aprenda sobre arrays na linguagem de programação C.
+        </p>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="container mx-auto px-4">
+        <!-- Introdução -->
+        <section class="mb-12">
+            <h2 class="text-2xl sm:text-3xl font-bold text-purple-500 mb-4">Introdução</h2>
+            <p class="text-gray-400 text-lg">
+                Um array é uma variável que armazena diversos valores.
+            </p>
+            <p class="text-gray-400 text-lg mt-4">
+                Todos os valores em um array, em C, precisam ter o mesmo tipo. Em outras palavras, teremos apenas arrays de valores <code>int</code>, arrays de valores <code>double</code> e assim por diante.
+            </p>
+        </section>
+
+        <!-- Definindo Arrays -->
+        <section class="mb-12">
+            <h2 class="text-2xl sm:text-3xl font-bold text-purple-500 mb-4">Definindo Arrays</h2>
+            <p class="text-gray-400 text-lg">
+                Você pode definir um array de valores <code>int</code>, assim:
+            </p>
+            <div class="code-box">
+                <pre><code>int prices[5];</code></pre>
+            </div>
+            <p class="text-gray-400 text-lg mt-4">
+                Você deve sempre especificar o tamanho do array. O C não fornece arrays dinâmicos nativamente (é preciso usar uma estrutura de dados, como uma lista vinculada, para que isso seja possível).
+            </p>
+            <p class="text-gray-400 text-lg mt-4">
+                Você pode usar uma constante para definir o tamanho:
+            </p>
+            <div class="code-box">
+                <pre><code>const int SIZE = 5;
+int prices[SIZE];</code></pre>
+            </div>
+        </section>
+
+        <!-- Inicializando Arrays -->
+        <section class="mb-12">
+            <h2 class="text-2xl sm:text-3xl font-bold text-purple-500 mb-4">Inicializando Arrays</h2>
+            <p class="text-gray-400 text-lg">
+                Você pode inicializar um array no momento da definição, assim:
+            </p>
+            <div class="code-box">
+                <pre><code>int prices[5] = { 1, 2, 3, 4, 5 };</code></pre>
+            </div>
+            <p class="text-gray-400 text-lg mt-4">
+                Além disso, você pode atribuir um valor após a definição, desta forma:
+            </p>
+            <div class="code-box">
+                <pre><code>int prices[5];
+
+prices[0] = 1;
+prices[1] = 2;
+prices[2] = 3;
+prices[3] = 4;
+prices[4] = 5;</code></pre>
+            </div>
+            <p class="text-gray-400 text-lg mt-4">
+                Ou ainda, de um modo mais prático, usando um laço:
+            </p>
+            <div class="code-box">
+                <pre><code>int prices[5];
+
+for (int i = 0; i < 5; i++) {
+  prices[i] = i + 1;
+}</code></pre>
+            </div>
+        </section>
+
+        <!-- Acessando Elementos do Array -->
+        <section class="mb-12">
+            <h2 class="text-2xl sm:text-3xl font-bold text-purple-500 mb-4">Acessando Elementos do Array</h2>
+            <p class="text-gray-400 text-lg">
+                Você pode referenciar um item no array usando colchetes após o nome da variável array, adicionando um número inteiro para determinar o valor do índice, assim:
+            </p>
+            <div class="code-box">
+                <pre><code>prices[0]; /* valor do item do array: 1 */
+prices[1]; /* valor do item do array: 2 */</code></pre>
+            </div>
+            <p class="text-gray-400 text-lg mt-4">
+                Os índices do array iniciam em <code>0</code> (zero). Desse modo, um array com 5 itens, como o array <code>prices</code> acima, terá itens que vão de <code>prices[0]</code> até <code>prices[4]</code>.
+            </p>
+        </section>
+
+        <!-- Armazenamento de Arrays -->
+        <section class="mb-12">
+            <h2 class="text-2xl sm:text-3xl font-bold text-purple-500 mb-4">Armazenamento de Arrays</h2>
+            <p class="text-gray-400 text-lg">
+                Algo interessante sobre os arrays em C é o fato de que todos os elementos são armazenados em sequência, um após o outro. Isso não é algo que normalmente ocorra com linguagens de programação de alto nível.
+            </p>
+            <p class="text-gray-400 text-lg mt-4">
+                Outra questão que vale a pena saber é sobre o nome da variável do array, como <code>prices</code>, no exemplo acima. O nome é um ponteiro do primeiro elemento do array. Assim, ele pode ser usado como um ponteiro normal.
+            </p>
+            <p class="text-gray-400 text-lg mt-4">
+                Falaremos mais sobre ponteiros adiante.
+            </p>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center py-6 bg-black mt-10 border-t border-gray-800">
+        <p class="text-gray-400 text-sm">
+            Artigo original: 
+            <a href="https://flaviocopes.pages.dev/books/c-handbook.pdf" target="_blank" class="text-white hover:underline">
+                The C Beginner's Handbook: Learn C Programming Language basics in just a few hours
+            </a>
+        </p>
+        <p class="text-gray-400 text-sm mt-2">
+            Este manual não busca cobrir tudo o que existe em relação ao C. Ele se concentra no básico da linguagem, tentando simplificar os tópicos mais complexos.
+        </p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrada e Saída em C</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Perfect DOS VGA 437';
+            src: url('fonts/PerfectDOSVGA437.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        body {
+            font-family: 'Perfect DOS VGA 437', monospace;
+        }
+        .code-box {
+            background-color: #1e1e1e;
+            border-radius: 8px;
+            padding: 1rem;
+            font-family: 'Fira Code', monospace;
+            color: #d4d4d4;
+            overflow-x: auto;
+        }
+        .code-box code {
+            color: #c678dd; /* Roxo para o código */
+        }
+    </style>
+</head>
+<body class="bg-black text-white">
+
+    <!-- Header -->
+    <header class="text-center py-10 bg-black">
+        <h1 class="text-3xl sm:text-5xl font-bold text-purple-500">Entrada e Saída em C</h1>
+        <p class="mt-4 text-gray-400 text-lg sm:text-2xl">
+            Aprenda sobre entrada e saída na linguagem de programação C.
+        </p>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="container mx-auto px-4">
+        <!-- Introdução -->
+        <section class="mb-12">
+            <h2 class="text-2xl sm:text-3xl font-bold text-purple-500 mb-4">Introdução</h2>
+            <p class="text-gray-400 text-lg">
+                O C é uma linguagem pequena, e o "núcleo" do C não inclui funcionalidades de entrada/saída (input/output, ou I/O).
+            </p>
+            <p class="text-gray-400 text-lg mt-4">
+                Isso não é exclusivo do C, naturalmente. É comum o núcleo de uma linguagem não depender de I/O.
+            </p>
+            <p class="text-gray-400 text-lg mt-4">
+                No caso do C, a entrada/saída é fornecida para nós por meio da biblioteca padrão (do inglês, standard library) do C por meio de um conjunto de funções definidas no arquivo de cabeçalho <code>stdio.h</code>.
+            </p>
+            <p class="text-gray-400 text-lg mt-4">
+                Você pode importar essa biblioteca usando:
+            </p>
+            <div class="code-box">
+                <pre><code>#include &lt;stdio.h&gt;</code></pre>
+            </div>
+            <p class="text-gray-400 text-lg mt-4">
+                Essa biblioteca nos fornece, entre muitas outras funções:
+            </p>
+            <ul class="list-disc list-inside text-gray-400 text-lg mt-4">
+                <li><code>printf()</code></li>
+                <li><code>scanf()</code></li>
+                <li><code>sscanf()</code></li>
+                <li><code>fgets()</code></li>
+                <li><code>fprintf()</code></li>
+            </ul>
+        </section>
+
+        <!-- Streams de I/O -->
+        <section class="mb-12">
+            <h2 class="text-2xl sm:text-3xl font-bold text-purple-500 mb-4">Streams de I/O</h2>
+            <p class="text-gray-400 text-lg">
+                Temos três tipos de streams de I/O no C:
+            </p>
+            <ul class="list-disc list-inside text-gray-400 text-lg mt-4">
+                <li><code>stdin</code> (standard input, ou a entrada padrão)</li>
+                <li><code>stdout</code> (standard output, ou a saída padrão)</li>
+                <li><code>stderr</code> (standard error, ou o erro padrão)</li>
+            </ul>
+            <p class="text-gray-400 text-lg mt-4">
+                Com funções de I/O, sempre trabalhamos com streams. Um stream é uma interface de alto nível que pode representar um dispositivo ou um arquivo. Do ponto de vista do C, não faz diferença ler de um arquivo ou ler de uma linha de comando: é um stream de I/O de todo modo.
+            </p>
+            <p class="text-gray-400 text-lg mt-4">
+                Algumas funções são projetadas para funcionar com um stream específico, como <code>printf()</code>, que usamos para imprimir caracteres no <code>stdout</code>. Usando seu equivalente mais geral, <code>fprintf()</code>, podemos especificar em qual stream queremos escrever.
+            </p>
+        </section>
+
+        <!-- Função printf() -->
+        <section class="mb-12">
+            <h2 class="text-2xl sm:text-3xl font-bold text-purple-500 mb-4">Função <code>printf()</code></h2>
+            <p class="text-gray-400 text-lg">
+                <code>printf()</code> é uma das primeiras funções que você usará ao aprender programação em C.
+            </p>
+            <p class="text-gray-400 text-lg mt-4">
+                Em sua forma mais simples, você passará a ela uma string literal:
+            </p>
+            <div class="code-box">
+                <pre><code>printf("Olá!");</code></pre>
+            </div>
+            <p class="text-gray-400 text-lg mt-4">
+                e o programa imprimirá o conteúdo da string na tela.
+            </p>
+            <p class="text-gray-400 text-lg mt-4">
+                Você pode imprimir o valor de uma variável. Porém, isso é um pouco mais complicado, pois você precisa adicionar um caractere especial, um placeholder, que muda dependendo do tipo de variável. Por exemplo, usamos <code>%d</code> para um algarismo inteiro decimal com sinal:
+            </p>
+            <div class="code-box">
+                <pre><code>int idade = 37;
+
+printf("Tenho %d anos", idade);</code></pre>
+            </div>
+            <p class="text-gray-400 text-lg mt-4">
+                Podemos imprimir mais de uma variável usando vírgulas:
+            </p>
+            <div class="code-box">
+                <pre><code>int idade_ontem = 36;
+int idade_hoje = 37;
+
+printf("Ontem, eu tinha %d anos e hoje eu tenho %d", idade_ontem, idade_hoje);</code></pre>
+            </div>
+            <p class="text-gray-400 text-lg mt-4">
+                Existem outros especificadores de formato, como o <code>%d</code>:
+            </p>
+            <ul class="list-disc list-inside text-gray-400 text-lg mt-4">
+                <li><code>%c</code> para um caractere</li>
+                <li><code>%s</code> para uma string</li>
+                <li><code>%f</code> para números de ponto flutuante</li>
+                <li><code>%p</code> para ponteiros</li>
+            </ul>
+            <p class="text-gray-400 text-lg mt-4">
+                e muito mais.
+            </p>
+            <p class="text-gray-400 text-lg mt-4">
+                Podemos usar caracteres de escape em <code>printf()</code>, como <code>\n</code>, usado para fazer com que a saída adicione uma nova linha.
+            </p>
+        </section>
+
+        <!-- Função scanf() -->
+        <section class="mb-12">
+            <h2 class="text-2xl sm:text-3xl font-bold text-purple-500 mb-4">Função <code>scanf()</code></h2>
+            <p class="text-gray-400 text-lg">
+                <code>printf()</code> é usada como uma função de saída. Quero apresentar uma função de entrada agora, para podermos dizer que vimos tanto a entrada quanto a saída: <code>scanf()</code>.
+            </p>
+            <p class="text-gray-400 text-lg mt-4">
+                Essa função é usada para obter de um usuário que estiver executando o programa um valor, a partir da linha de comando.
+            </p>
+            <p class="text-gray-400 text-lg mt-4">
+                Primeiro, devemos definir uma variável que conterá o valor que obtemos da entrada:
+            </p>
+            <div class="code-box">
+                <pre><code>int idade;</code></pre>
+            </div>
+            <p class="text-gray-400 text-lg mt-4">
+                Depois, chamamos <code>scanf()</code> com 2 argumentos: o formato (tipo) da variável e o endereço da variável:
+            </p>
+            <div class="code-box">
+                <pre><code>scanf("%d", &idade);</code></pre>
+            </div>
+            <p class="text-gray-400 text-lg mt-4">
+                Se quisermos obter uma string como entrada, devemos lembrar que o nome de uma string é um ponteiro para seu primeiro caractere. Assim, não é necessário o caractere <code>&</code> antes dela:
+            </p>
+            <div class="code-box">
+                <pre><code>char nome[20];
+scanf("%s", nome);</code></pre>
+            </div>
+            <p class="text-gray-400 text-lg mt-4">
+                Aqui, vemos um pequeno programa que usa <code>printf()</code> e <code>scanf()</code>:
+            </p>
+            <div class="code-box">
+                <pre><code>#include &lt;stdio.h&gt;
+
+int main(void) {
+  char nome[20];
+  printf("Digite seu nome: ");
+  scanf("%s", nome);
+  printf("Foi digitado o nome %s", nome);
+}</code></pre>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center py-6 bg-black mt-10 border-t border-gray-800">
+        <p class="text-gray-400 text-sm">
+            Artigo original: 
+            <a href="https://flaviocopes.pages.dev/books/c-handbook.pdf" target="_blank" class="text-white hover:underline">
+                The C Beginner's Handbook: Learn C Programming Language basics in just a few hours
+            </a>
+        </p>
+        <p class="text-gray-400 text-sm mt-2">
+            Este manual não busca cobrir tudo o que existe em relação ao C. Ele se concentra no básico da linguagem, tentando simplificar os tópicos mais complexos.
+        </p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funções em C</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Perfect DOS VGA 437';
+            src: url('fonts/PerfectDOSVGA437.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        body {
+            font-family: 'Perfect DOS VGA 437', monospace;
+        }
+        .code-box {
+            background-color: #1e1e1e;
+            border-radius: 8px;
+            padding: 1rem;
+            font-family: 'Fira Code', monospace;
+            color: #d4d4d4;
+            overflow-x: auto;
+        }
+        .code-box code {
+            color: #c678dd; /* Roxo para o código */
+        }
+    </style>
+</head>
+<body class="bg-black text-white">
+
+    <!-- Header -->
+    <header class="text-center py-10 bg-black">
+        <h1 class="text-3xl sm:text-5xl font-bold text-purple-500">Funções em C</h1>
+        <p class="mt-4 text-gray-400 text-lg sm:text-2xl">
+            Aprenda sobre funções na linguagem de programação C.
+        </p>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="container mx-auto px-4">
+        <!-- Introdução -->
+        <section class="mb-12">
+            <h2 class="text-2xl sm:text-3xl font-bold text-purple-500 mb-4">Introdução</h2>
+            <p class="text-gray-400 text-lg">
+                As funções são uma forma através da qual podemos estruturar nosso código em sub-rotinas as quais podemos:
+            </p>
+            <ul class="list-disc list-inside text-gray-400 text-lg mt-4">
+                <li>Dar um nome</li>
+                <li>Chamar quando precisamos delas</li>
+            </ul>
+            <p class="text-gray-400 text-lg mt-4">
+                Iniciando de seu primeiro programa, um "Hello, World!", você já faz uso de funções em C imediatamente:
+            </p>
+            <div class="code-box">
+                <pre><code>#include &lt;stdio.h&gt;
+
+int main(void) {
+    printf("Hello, World!");
+}</code></pre>
+            </div>
+            <p class="text-gray-400 text-lg mt-4">
+                A função <code>main()</code> é muito importante, pois é o ponto de entrada para um programa em C.
+            </p>
+        </section>
+
+        <!-- Estrutura de uma Função -->
+        <section class="mb-12">
+            <h2 class="text-2xl sm:text-3xl font-bold text-purple-500 mb-4">Estrutura de uma Função</h2>
+            <p class="text-gray-400 text-lg">
+                Aqui temos outra função:
+            </p>
+            <div class="code-box">
+                <pre><code>void fazerAlgo(int value) {
+    printf("%u", value);
+}</code></pre>
+            </div>
+            <p class="text-gray-400 text-lg mt-4">
+                As funções têm quatro aspectos importantes:
+            </p>
+            <ul class="list-disc list-inside text-gray-400 text-lg mt-4">
+                <li>Elas têm um nome, então podemos invocá-las ("chamá-las") mais tarde</li>
+                <li>Elas especificam um valor de retorno</li>
+                <li>Elas podem ter argumentos</li>
+                <li>Elas têm um corpo, envolvido por chaves</li>
+            </ul>
+            <p class="text-gray-400 text-lg mt-4">
+                O corpo da função é o conjunto de instruções que são executadas sempre que invocamos uma função.
+            </p>
+            <p class="text-gray-400 text-lg mt-4">
+                Se a função não tiver um valor de retorno, você pode usar a palavra-chave <code>void</code> antes do nome da função. Do contrário, especifique o tipo do valor de retorno da função (<code>int</code> para inteiros, <code>float</code> para valores de ponto flutuante, <code>const char *</code> para uma string etc.).
+            </p>
+            <p class="text-gray-400 text-lg mt-4">
+                Você não pode retornar mais de um valor a partir de uma função.
+            </p>
+        </section>
+
+        <!-- Parâmetros de Funções -->
+        <section class="mb-12">
+            <h2 class="text-2xl sm:text-3xl font-bold text-purple-500 mb-4">Parâmetros de Funções</h2>
+            <p class="text-gray-400 text-lg">
+                Uma função pode ter argumentos. Eles são opcionais. Se ela não os tiver, dentro dos parênteses, inserimos <code>void</code>, assim:
+            </p>
+            <div class="code-box">
+                <pre><code>void fazerAlgo(void) {
+   /* ... */
+}</code></pre>
+            </div>
+            <p class="text-gray-400 text-lg mt-4">
+                Neste caso, quando invocamos a função, a chamamos sem nada entre os parênteses:
+            </p>
+            <div class="code-box">
+                <pre><code>fazerAlgo();</code></pre>
+            </div>
+            <p class="text-gray-400 text-lg mt-4">
+                Se nós temos um parâmetro, especificamos o tipo e o nome do parâmetro, assim:
+            </p>
+            <div class="code-box">
+                <pre><code>void fazerAlgo(int valor) {
+   /* ... */
+}</code></pre>
+            </div>
+            <p class="text-gray-400 text-lg mt-4">
+                Quando invocamos o nome da função, passamos aquele parâmetro nos parênteses, assim:
+            </p>
+            <div class="code-box">
+                <pre><code>fazerAlgo(3);</code></pre>
+            </div>
+            <p class="text-gray-400 text-lg mt-4">
+                Podemos ter vários parâmetros, e, se tivermos, os separamos usando uma vírgula, na declaração e na invocação:
+            </p>
+            <div class="code-box">
+                <pre><code>void fazerAlgo(int valor1, int valor2) {
+   /* ... */
+}
+
+fazerAlgo(3, 4);</code></pre>
+            </div>
+            <p class="text-gray-400 text-lg mt-4">
+                Parâmetros são passados por cópia. Isso significa que, se você modificar <code>valor1</code>, seu valor é modificado localmente. O valor fora da função, onde ele foi passado na invocação, não se altera.
+            </p>
+            <p class="text-gray-400 text-lg mt-4">
+                Se você passar um ponteiro como parâmetro, pode modificar aquele valor de variável, pois agora você pode acessá-la diretamente, usando seu endereço de memória.
+            </p>
+            <p class="text-gray-400 text-lg mt-4">
+                Você não pode definir um valor padrão como parâmetro. O C++ permite isso (assim como os programas na linguagem Arduino), mas o C não.
+            </p>
+        </section>
+
+        <!-- Declaração de Funções -->
+        <section class="mb-12">
+            <h2 class="text-2xl sm:text-3xl font-bold text-purple-500 mb-4">Declaração de Funções</h2>
+            <p class="text-gray-400 text-lg">
+                Não se esqueça de definir a função antes de chamá-la. Do contrário, o compilador lançará um aviso e um erro:
+            </p>
+            <div class="code-box">
+                <pre><code>➜  ~ gcc hello.c -o hello; ./hello
+hello.c:13:3: warning: implicit declaration of
+      function 'fazerAlgo' is invalid in C99
+      [-Wimplicit-function-declaration]
+  fazerAlgo(3, 4);
+  ^
+hello.c:17:6: error: conflicting types for
+      'fazerAlgo'
+void fazerAlgo(int valor1, char valor2) {
+     ^
+hello.c:13:3: note: previous implicit declaration
+      is here
+  fazerAlgo(3, 4);
+  ^
+1 warning and 1 error generated.</code></pre>
+            </div>
+            <p class="text-gray-400 text-lg mt-4">
+                O aviso tem a ver com a ordenação, algo que já mencionei antes.
+            </p>
+            <p class="text-gray-400 text-lg mt-4">
+                O erro tem a ver com outra coisa que está relacionada. Como o C não "vê" a declaração da função antes da invocação, ele deve fazer suposições. Ele, então, supõe que a função retorne <code>int</code>. A função, no entanto, retorna <code>void</code>, que é a razão para o erro.
+            </p>
+            <p class="text-gray-400 text-lg mt-4">
+                Se alterarmos a definição da função para:
+            </p>
+            <div class="code-box">
+                <pre><code>int fazerAlgo(int valor1, int valor2) {
+  printf("%d %d\n", valor1, valor2);
+  return 1;
+}</code></pre>
+            </div>
+            <p class="text-gray-400 text-lg mt-4">
+                Receberemos apenas o aviso, não o erro:
+            </p>
+            <div class="code-box">
+                <pre><code>➜  ~ gcc hello.c -o hello; ./hello
+hello.c:14:3: warning: implicit declaration of
+      function 'fazerAlgo' is invalid in C99
+      [-Wimplicit-function-declaration]
+  fazerAlgo(3, 4);
+  ^
+1 warning generated.</code></pre>
+            </div>
+            <p class="text-gray-400 text-lg mt-4">
+                De qualquer modo, certifique-se de declarar a função antes de usá-la. Mova a função para cima ou adicione o protótipo da função em um arquivo de cabeçalho (em inglês, header).
+            </p>
+        </section>
+
+        <!-- Variáveis Locais e Recursão -->
+        <section class="mb-12">
+            <h2 class="text-2xl sm:text-3xl font-bold text-purple-500 mb-4">Variáveis Locais e Recursão</h2>
+            <p class="text-gray-400 text-lg">
+                Dentro de uma função, é possível declarar variáveis.
+            </p>
+            <div class="code-box">
+                <pre><code>void fazerAlgo(int valor) {
+  int valorEmDobro = valor * 2;
+}</code></pre>
+            </div>
+            <p class="text-gray-400 text-lg mt-4">
+                Uma variável é criada no ponto de invocação da função e destruída quando a função se encerra. Ela não é visível de fora.
+            </p>
+            <p class="text-gray-400 text-lg mt-4">
+                Dentro de uma função, você pode chamar a própria função. Isso se chama recursão e é algo que oferece possibilidades bem peculiares.
+            </p>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center py-6 bg-black mt-10 border-t border-gray-800">
+        <p class="text-gray-400 text-sm">
+            Artigo original: 
+            <a href="https://flaviocopes.pages.dev/books/c-handbook.pdf" target="_blank" class="text-white hover:underline">
+                The C Beginner's Handbook: Learn C Programming Language basics in just a few hours
+            </a>
+        </p>
+        <p class="text-gray-400 text-sm mt-2">
+            Este manual não busca cobrir tudo o que existe em relação ao C. Ele se concentra no básico da linguagem, tentando simplificar os tópicos mais complexos.
+        </p>
+    </footer>
+
+</body>
+</html>
