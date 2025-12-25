@@ -129,37 +129,36 @@ const LessonView = ({ moduleIndex, onBack, onNext, onPrev }) => {
                   {content.code.split("\n").map((line, i) => {
                     // Função simples de syntax highlighting
                     const highlightLine = (text) => {
-                      // Escape HTML entities to keep original code safe
                       let safeText = text
                         .replace(/&/g, "&amp;")
                         .replace(/</g, "&lt;")
                         .replace(/>/g, "&gt;");
 
-                      // Use inline styles instead of Tailwind class names to avoid rendering issues
+                      // Ordem corrigida: números primeiro para não pegar o "700" do font-weight
                       return safeText
-                        .replace(
-                          /(\/\/.*)/g,
-                          '<span style="color:#6a9955;font-style:italic">$1</span>'
-                        ) // line comments
-                        .replace(
-                          /(\/\*[\s\S]*?\*\/)/g,
-                          '<span style="color:#6a9955;font-style:italic">$1</span>'
-                        ) // block comments
-                        .replace(
-                          /(".*?")/g,
-                          '<span style="color:#ce9178">$1</span>'
-                        ) // strings
-                        .replace(
-                          /('.*?')/g,
-                          '<span style="color:#ce9178">$1</span>'
-                        ) // chars
-                        .replace(
-                          /\b(int|float|char|double|void|return|if|else|for|while|do|switch|case|break|continue|struct|typedef|default)\b/g,
-                          '<span style="color:#c586c0;font-weight:700">$1</span>'
-                        )
                         .replace(
                           /\b(\d+)\b/g,
                           '<span style="color:#b5cea8">$1</span>'
+                        )
+                        .replace(
+                          /(\/\/.*)/g,
+                          '<span style="color:#6a9955;font-style:italic">$1</span>'
+                        )
+                        .replace(
+                          /(\/\*[\s\S]*?\*\/)/g,
+                          '<span style="color:#6a9955;font-style:italic">$1</span>'
+                        )
+                        .replace(
+                          /(".*?")/g,
+                          '<span style="color:#ce9178">$1</span>'
+                        )
+                        .replace(
+                          /('.*?')/g,
+                          '<span style="color:#ce9178">$1</span>'
+                        )
+                        .replace(
+                          /\b(int|float|char|double|void|return|if|else|for|while|do|switch|case|break|continue|struct|typedef|default)\b/g,
+                          '<span style="color:#c586c0;font-weight:700">$1</span>'
                         )
                         .replace(
                           /\b(printf|scanf|malloc|free|strcpy|strcmp|fopen|fclose|fprintf)\b/g,
@@ -174,13 +173,13 @@ const LessonView = ({ moduleIndex, onBack, onNext, onPrev }) => {
                     return (
                       <div
                         key={i}
-                        className="table-row hover:bg-[#2d2d2d] transition-colors"
+                        className="flex hover:bg-[#2d2d2d] transition-colors group/line"
                       >
-                        <span className="table-cell text-right pr-4 text-[#6e7681] select-none w-8 border-r border-[#404040] mr-4 opacity-50">
+                        <span className="w-10 md:w-12 text-right pr-4 text-[#6e7681] select-none border-r border-[#404040] shrink-0 opacity-50 font-mono text-xs md:text-sm flex items-center justify-end">
                           {i + 1}
                         </span>
                         <span
-                          className="table-cell pl-4 whitespace-pre font-mono text-sm md:text-base leading-relaxed text-[#d4d4d4]"
+                          className="flex-1 pl-4 whitespace-pre font-mono text-sm md:text-base leading-relaxed text-[#d4d4d4] py-0.5"
                           dangerouslySetInnerHTML={{
                             __html: highlightLine(line) || "\u00A0",
                           }}
