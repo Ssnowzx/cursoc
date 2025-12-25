@@ -129,45 +129,51 @@ const LessonView = ({ moduleIndex, onBack, onNext, onPrev }) => {
                   {content.code.split("\n").map((line, i) => {
                     // Função simples de syntax highlighting
                     const highlightLine = (text) => {
+                      if (!text) return "\u00A0";
+
+                      // 1. Escape HTML entities first
                       let safeText = text
                         .replace(/&/g, "&amp;")
                         .replace(/</g, "&lt;")
                         .replace(/>/g, "&gt;");
 
-                      // Ordem corrigida: números primeiro para não pegar o "700" do font-weight
-                      return safeText
-                        .replace(
-                          /\b(\d+)\b/g,
-                          '<span style="color:#b5cea8">$1</span>'
-                        )
-                        .replace(
-                          /(\/\/.*)/g,
-                          '<span style="color:#6a9955;font-style:italic">$1</span>'
-                        )
-                        .replace(
-                          /(\/\*[\s\S]*?\*\/)/g,
-                          '<span style="color:#6a9955;font-style:italic">$1</span>'
-                        )
-                        .replace(
-                          /(".*?")/g,
-                          '<span style="color:#ce9178">$1</span>'
-                        )
-                        .replace(
-                          /('.*?')/g,
-                          '<span style="color:#ce9178">$1</span>'
-                        )
-                        .replace(
-                          /\b(int|float|char|double|void|return|if|else|for|while|do|switch|case|break|continue|struct|typedef|default)\b/g,
-                          '<span style="color:#c586c0;font-weight:700">$1</span>'
-                        )
-                        .replace(
-                          /\b(printf|scanf|malloc|free|strcpy|strcmp|fopen|fclose|fprintf)\b/g,
-                          '<span style="color:#dcdcaa">$1</span>'
-                        )
-                        .replace(
-                          /(#include)/g,
-                          '<span style="color:#c586c0;font-weight:700">$1</span>'
-                        );
+                      // 2. Define patterns and their replacement templates
+                      // We use placeholders like __TOKEN_0__ to avoid nested replacements
+                      const tokens = [];
+                      const addToken = (content, style) => {
+                        const id = `__TOKEN_${tokens.length}__`;
+                        tokens.push({ id, html: `<span style="${style}">${content}</span>` });
+                        return id;
+                      };
+
+                      // Strings
+                      safeText = safeText.replace(/(".*?"|'.*?')/g, (match) => addToken(match, "color:#ce9178"));
+                      
+                      // Comments
+                      safeText = safeText.replace(/(\/\/.*|\/\*[\s\S]*?\*\/)/g, (match) => addToken(match, "color:#6a9955;font-style:italic"));
+
+                      // Keywords
+                      safeText = safeText.replace(/\b(int|float|char|double|void|return|if|else|for|while|do|switch|case|break|continue|struct|typedef|default|static|enum)\b/g, (match) => addToken(match, "color:#c586c0;font-weight:700"));
+
+                      // Functions
+                      safeText = safeText.replace(/\b(printf|scanf|malloc|free|strcpy|strcmp|fopen|fclose|fprintf)\b/g, (match) => addToken(match, "color:#dcdcaa"));
+
+                      // Preprocessor
+                      safeText = safeText.replace(/(#include|#define)/g, (match) => addToken(match, "color:#c586c0;font-weight:700"));
+
+                      // Numbers (only if not part of a token placeholder)
+                      safeText = safeText.replace(/\b(\d+)\b/g, (match) => {
+                        return addToken(match, "color:#b5cea8");
+                      });
+
+                      // 3. Replace placeholders back with actual HTML
+                      let finalHtml = safeText;
+                      // Run multiple times to handle any potential nesting (though we tried to avoid it)
+                      tokens.forEach(token => {
+                        finalHtml = finalHtml.replace(token.id, token.html);
+                      });
+
+                      return finalHtml;
                     };
 
                     return (
