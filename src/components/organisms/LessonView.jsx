@@ -179,9 +179,12 @@ const LessonView = ({ moduleIndex, onBack, onNext, onPrev }) => {
                         <span className="table-cell text-right pr-4 text-[#6e7681] select-none w-8 border-r border-[#404040] mr-4 opacity-50">
                           {i + 1}
                         </span>
-                        <span className="table-cell pl-4 whitespace-pre font-mono text-sm md:text-base leading-relaxed text-[#d4d4d4]">
-                          {line || "\u00A0"}
-                        </span>
+                        <span
+                          className="table-cell pl-4 whitespace-pre font-mono text-sm md:text-base leading-relaxed text-[#d4d4d4]"
+                          dangerouslySetInnerHTML={{
+                            __html: highlightLine(line) || "\u00A0",
+                          }}
+                        />
                       </div>
                     );
                   })}
