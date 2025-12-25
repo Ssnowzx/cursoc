@@ -1,51 +1,61 @@
 <!DOCTYPE html>
+<<<<<<< HEAD
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>O manual do iniciante em C</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet"> <!-- Adicionando Animate.css -->
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap" rel="stylesheet">
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+      rel="stylesheet"
+    />
+    <!-- Adicionando Animate.css -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
     <style>
-        @font-face {
-            font-family: 'Perfect DOS VGA 437';
-            src: url('fonts/PerfectDOSVGA437.ttf') format('truetype');
-            font-weight: normal;
-            font-style: normal;
-        }
-        body {
-            font-family: 'Perfect DOS VGA 437', monospace;
-        }
+      @font-face {
+        font-family: "Perfect DOS VGA 437";
+        src: url("fonts/PerfectDOSVGA437.ttf") format("truetype");
+        font-weight: normal;
+        font-style: normal;
+      }
+      body {
+        font-family: "Perfect DOS VGA 437", monospace;
+      }
 
-        /* Efeito de sombra branca personalizado */
-        .caixa:hover {
-            box-shadow: 0 0 15px rgba(255, 255, 255, 0.3); /* Sombra branca sutil */
-        }
+      /* Efeito de sombra branca personalizado */
+      .caixa:hover {
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.3); /* Sombra branca sutil */
+      }
 
-        /* Estilo para o efeito de digitação */
-        #typing-effect {
-            font-size: 1.25rem; /* Tamanho da fonte menor */
-            line-height: 1.5; /* Espaçamento entre linhas */
-            white-space: pre-wrap; /* Preserva a formatação de quebras de linha e espaços */
-            text-align: center; /* Centraliza o texto */
-        }
+      /* Estilo para o efeito de digitação */
+      #typing-effect {
+        font-size: 1.25rem; /* Tamanho da fonte menor */
+        line-height: 1.5; /* Espaçamento entre linhas */
+        white-space: pre-wrap; /* Preserva a formatação de quebras de linha e espaços */
+        text-align: center; /* Centraliza o texto */
+      }
 
-        /* Centraliza a segunda linha */
-        #typing-effect .line2 {
-            display: block;
-            text-align: center; /* Centraliza o texto da segunda linha */
-        }
+      /* Centraliza a segunda linha */
+      #typing-effect .line2 {
+        display: block;
+        text-align: center; /* Centraliza o texto da segunda linha */
+      }
     </style>
-</head>
-<body class="bg-black text-white">
-
+  </head>
+  <body class="bg-black text-white">
     <!-- Header -->
     <header class="text-center py-10 bg-black">
-        <h1 class="text-3xl sm:text-5xl font-bold">O manual do iniciante em C</h1>
-        <p class="mt-4 text-gray-400 text-lg sm:text-2xl">
-            <span id="typing-effect"></span>
-        </p>
+      <h1 class="text-3xl sm:text-5xl font-bold">O manual do iniciante em C</h1>
+      <p class="mt-4 text-gray-400 text-lg sm:text-2xl">
+        <span id="typing-effect"></span>
+      </p>
     </header>
 
     <!-- Espaçamento adicional -->
@@ -53,16 +63,22 @@
 
     <!-- Conteúdo do Curso -->
     <main class="container mx-auto px-4">
-        <!-- Título do Sumário -->
-        <h2 class="text-2xl sm:text-3xl font-bold mb-8 text-center text-gray-300">Sumário</h2>
+      <!-- Título do Sumário -->
+      <h2 class="text-2xl sm:text-3xl font-bold mb-8 text-center text-gray-300">
+        Sumário
+      </h2>
 
-        <!-- Primeira linha de blocos -->
-        <div class="flex flex-col sm:flex-row space-y-6 sm:space-y-0 sm:space-x-6">
-            <!-- Primeiro Bloco: Introdução ao C -->
-            <a href="introducao_ao_c.html">
-                <div class="caixa bg-[#2d2d2d] p-6 border border-gray-700 rounded-2xl shadow-lg transform transition-transform hover:scale-105 flex-1 h-[300px]">
-                    <h2 class="text-xl font-bold">Introdução ao C</h2>
-                    <pre class="mt-4 text-gray-400 text-sm">
+      <!-- Primeira linha de blocos -->
+      <div
+        class="flex flex-col sm:flex-row space-y-6 sm:space-y-0 sm:space-x-6"
+      >
+        <!-- Primeiro Bloco: Introdução ao C -->
+        <a href="introducao_ao_c.html">
+          <div
+            class="caixa bg-[#2d2d2d] p-6 border border-gray-700 rounded-2xl shadow-lg transform transition-transform hover:scale-105 flex-1 h-[300px]"
+          >
+            <h2 class="text-xl font-bold">Introdução ao C</h2>
+            <pre class="mt-4 text-gray-400 text-sm">
                         <code>
 #include &lt;stdio.h&gt;
 
@@ -72,279 +88,276 @@ int main(void) {
 }
                         </code>
                     </pre>
-                </div>
-            </a>
+          </div>
+        </a>
 
-            <!-- Segundo Bloco: Variáveis e Tipos -->
-            <a href="variaveis_e_tipos.html">
-                <div class="caixa bg-[#2d2d2d] p-6 border border-gray-700 rounded-2xl shadow-lg transform transition-transform hover:scale-105 flex-1 h-[300px]">
-                    <h2 class="text-xl font-bold">Variáveis e Tipos</h2>
-                    <p class="mt-4 text-gray-400 text-lg">
-                        C é uma linguagem<br>estaticamente tipada.
-                    </p>
-                </div>
-            </a>
-
-            <!-- Terceiro Bloco: Constantes -->
-            <a href="constantes.html">
-                <div class="caixa bg-[#2d2d2d] p-6 border border-gray-700 rounded-2xl shadow-lg transform transition-transform hover:scale-105 flex-1 h-[300px]">
-                    <h2 class="text-xl font-bold">Constantes</h2>
-                    <p class="mt-4 text-gray-400 text-lg">
-                        Vamos, agora, falar<br>das constantes.
-                    </p>
-                </div>
-            </a>
-
-            <!-- Quarto Bloco: Operadores -->
-            <a href="operadores.html">
-                <div class="caixa bg-[#2d2d2d] p-6 border border-gray-700 rounded-2xl shadow-lg transform transition-transform hover:scale-105 flex-1 h-[300px]">
-                    <h2 class="text-xl font-bold">Operadores</h2>
-                    <p class="mt-4 text-gray-400 text-lg">
-                        O C nos oferece uma<br>grande variedade de<br>operadores que podemos<br>usar para fazer operações<br>com os dados.
-                    </p>
-                </div>
-            </a>
-
-            <!-- Quinto Bloco: Condicionais -->
-            <a href="condicionais.html">
-                <div class="caixa bg-[#2d2d2d] p-6 border border-gray-700 rounded-2xl shadow-lg transform transition-transform hover:scale-105 flex-1 h-[300px]">
-                    <h2 class="text-xl font-bold">Condicionais</h2>
-                    <p class="mt-4 text-gray-400 text-lg">
-                        Todas as linguagens de<br>programação fornecem<br>aos programadores<br>a capacidade de<br>realizar escolhas.
-                    </p>
-                </div>
-            </a>
-        </div>
-
-        <!-- Espaçamento adicional -->
-        <div class="py-8"></div>
-
-        <!-- Segunda linha de blocos -->
-        <div class="flex flex-col sm:flex-row space-y-6 sm:space-y-0 sm:space-x-6">
-            <!-- Sexto Bloco: Laços -->
-            <a href="lacos.html">
-                <div class="caixa bg-[#2d2d2d] p-6 border border-gray-700 rounded-2xl shadow-lg transform transition-transform hover:scale-105 flex-1 h-[300px]">
-                    <h2 class="text-xl font-bold">Laços</h2>
-                    <p class="mt-4 text-gray-400 text-lg">
-                        O C nos oferece três maneiras<br>de realizar um laço: laços for,<br>laços while e laços do while.
-                    </p>
-                </div>
-            </a>
-
-            <!-- Sétimo Bloco: Arrays -->
-            <a href="arrays.html">
-                <div class="caixa bg-[#2d2d2d] p-6 border border-gray-700 rounded-2xl shadow-lg transform transition-transform hover:scale-105 flex-1 h-[300px]">
-                    <h2 class="text-xl font-bold">Arrays</h2>
-                    <p class="mt-4 text-gray-400 text-lg">
-                        Um array é uma variável que<br>armazena diversos valores.
-                    </p>
-                </div>
-            </a>
-
-            <!-- Oitavo Bloco: Strings -->
-            <a href="strings.html">
-                <div class="caixa bg-[#2d2d2d] p-6 border border-gray-700 rounded-2xl shadow-lg transform transition-transform hover:scale-105 flex-1 h-[300px]">
-                    <h2 class="text-xl font-bold">Strings</h2>
-                    <p class="mt-4 text-gray-400 text-lg">
-                        Em C, as strings são um<br>tipo especial de array.
-                    </p>
-                </div>
-            </a>
-
-            <!-- Nono Bloco: Ponteiros -->
-            <a href="ponteiros.html">
-                <div class="caixa bg-[#2d2d2d] p-6 border border-gray-700 rounded-2xl shadow-lg transform transition-transform hover:scale-105 flex-1 h-[300px]">
-                    <h2 class="text-xl font-bold">Ponteiros</h2>
-                    <p class="mt-4 text-gray-400 text-lg">
-                        Os ponteiros são uma das<br>partes mais confusas/desafiadoras<br>da linguagem C.
-                    </p>
-                </div>
-            </a>
-
-            <!-- Décimo Bloco: Funções -->
-            <a href="funcoes.html">
-                <div class="caixa bg-[#2d2d2d] p-6 border border-gray-700 rounded-2xl shadow-lg transform transition-transform hover:scale-105 flex-1 h-[300px]">
-                    <h2 class="text-xl font-bold">Funções</h2>
-                    <p class="mt-4 text-gray-400 text-lg">
-                        As funções são uma forma<br>através da qual podemos<br>estruturar nosso código<br>em sub-rotinas.
-                    </p>
-                </div>
-            </a>
-        </div>
-
-        <!-- Espaçamento adicional -->
-        <div class="py-8"></div>
-
-        <!-- Terceira linha de blocos -->
-        <div class="flex flex-col sm:flex-row space-y-6 sm:space-y-0 sm:space-x-6">
-            <!-- Bloco 11: Entrada e saída -->
-            <a href="entrada_saida.html">
-                <div class="caixa bg-[#2d2d2d] p-6 border border-gray-700 rounded-2xl shadow-lg transform transition-transform hover:scale-105 flex-1 h-[300px]">
-                    <h2 class="text-xl font-bold">Entrada e saída</h2>
-                    <p class="mt-4 text-gray-400 text-lg">
-                        O C é uma linguagem pequena,<br>e o "núcleo" do C não inclui<br>funcionalidades de<br>entrada/saída (I/O).
-                    </p>
-                </div>
-            </a>
-
-            <!-- Bloco 12: Escopo das variáveis -->
-            <a href="escopo_variaveis.html">
-                <div class="caixa bg-[#2d2d2d] p-6 border border-gray-700 rounded-2xl shadow-lg transform transition-transform hover:scale-105 flex-1 h-[300px]">
-                    <h2 class="text-xl font-bold">Escopo das variáveis</h2>
-                    <p class="mt-4 text-gray-400 text-lg">
-                        Ao definir uma variável em<br>um programa em C,<br>dependendo de onde você<br>a declarar, ela terá um<br>escopo diferente.
-                    </p>
-                </div>
-            </a>
-
-            <!-- Bloco 13: Variáveis estáticas -->
-            <a href="variaveis_estaticas.html">
-                <div class="caixa bg-[#2d2d2d] p-6 border border-gray-700 rounded-2xl shadow-lg transform transition-transform hover:scale-105 flex-1 h-[300px]">
-                    <h2 class="text-xl font-bold">Variáveis estáticas</h2>
-                    <p class="mt-4 text-gray-400 text-lg">
-                        Dentro de uma função,<br>você pode inicializar uma<br>variável estática usando<br>a palavra-chave static.
-                    </p>
-                </div>
-            </a>
-
-            <!-- Bloco 14: Variáveis globais -->
-            <a href="variaveis_globais.html">
-                <div class="caixa bg-[#2d2d2d] p-6 border border-gray-700 rounded-2xl shadow-lg transform transition-transform hover:scale-105 flex-1 h-[300px]">
-                    <h2 class="text-xl font-bold">Variáveis globais</h2>
-                    <p class="mt-4 text-gray-400 text-lg">
-                        Nesta seção, eu gostaria<br>de falar um pouco mais<br>sobre a diferença entre<br>as variáveis locais e globais.
-                    </p>
-                </div>
-            </a>
-
-            <!-- Bloco 15: Definições de tipo -->
-            <a href="definicoes_tipo.html">
-                <div class="caixa bg-[#2d2d2d] p-6 border border-gray-700 rounded-2xl shadow-lg transform transition-transform hover:scale-105 flex-1 h-[300px]">
-                    <h2 class="text-xl font-bold">Definições de tipo</h2>
-                    <p class="mt-4 text-gray-400 text-lg">
-                        A palavra-chave<br>typedef em C permite<br>que você defina tipos novos.
-                    </p>
-                </div>
-            </a>
-        </div>
-
-        <!-- Espaçamento adicional -->
-        <div class="py-8"></div>
-
-        <!-- Quarta linha de blocos -->
-        <div class="flex flex-col sm:flex-row space-y-6 sm:space-y-0 sm:space-x-6">
-            <!-- Bloco 16: Tipos enumerados -->
-            <a href="tipos_enumerados.html">
-                <div class="caixa bg-[#2d2d2d] p-6 border border-gray-700 rounded-2xl shadow-lg transform transition-transform hover:scale-105 flex-1 h-[300px]">
-                    <h2 class="text-xl font-bold">Tipos enumerados</h2>
-                    <p class="mt-4 text-gray-400 text-lg">
-                        Usando as palavras-chave<br>typedef e enum, podemos<br>definir um tipo que pode ter<br>um valor ou outro.
-                    </p>
-                </div>
-            </a>
-
-            <!-- Bloco 17: Estruturas -->
-            <a href="estruturas.html">
-                <div class="caixa bg-[#2d2d2d] p-6 border border-gray-700 rounded-2xl shadow-lg transform transition-transform hover:scale-105 flex-1 h-[300px]">
-                    <h2 class="text-xl font-bold">Estruturas</h2>
-                    <p class="mt-4 text-gray-400 text-lg">
-                        Usando a palavra-chave struct,<br>podemos criar estruturas de<br>dados complexas por meio<br>dos tipos básicos em C.
-                    </p>
-                </div>
-            </a>
-
-            <!-- Bloco 18: Parâmetros da linha de comando -->
-            <a href="parametros_linha_comando.html">
-                <div class="caixa bg-[#2d2d2d] p-6 border border-gray-700 rounded-2xl shadow-lg transform transition-transform hover:scale-105 flex-1 h-[300px]">
-                    <h2 class="text-xl font-bold">Parâmetros da linha de comando</h2>
-                    <p class="mt-4 text-gray-400 text-lg">
-                        Em seus programas em C,<br>você pode precisar aceitar<br>parâmetros a partir da linha<br>de comando quando um<br>comando for executado.
-                    </p>
-                </div>
-            </a>
-
-            <!-- Bloco 19: Arquivos de cabeçalho (headers) -->
-            <a href="arquivos_cabecalho.html">
-                <div class="caixa bg-[#2d2d2d] p-6 border border-gray-700 rounded-2xl shadow-lg transform transition-transform hover:scale-105 flex-1 h-[300px]">
-                    <h2 class="text-xl font-bold">Arquivos de cabeçalho (headers)</h2>
-                    <p class="mt-4 text-gray-400 text-lg">
-                        Programas simples podem<br>ser colocados em um<br>único arquivo.
-                    </p>
-                </div>
-            </a>
-
-            <!-- Bloco 20: O pré-processador -->
-            <a href="pre_processador.html">
-                <div class="caixa bg-[#2d2d2d] p-6 border border-gray-700 rounded-2xl shadow-lg transform transition-transform hover:scale-105 flex-1 h-[300px]">
-                    <h2 class="text-xl font-bold">O pré-processador</h2>
-                    <p class="mt-4 text-gray-400 text-lg">
-                        O pré-processador é uma<br>ferramenta que nos ajuda<br>muito quando<br>programamos em C.
-                    </p>
-                </div>
-            </a>
-        </div>
-
-        <!-- Novo setor -->
-        <div class="text-center py-16"> <!-- Aumentei o padding vertical para dar mais espaço -->
-            <p class="text-gray-400 text-lg">
-                Agora que você já domina o básico, que tal colocarmos em prática o que aprendeu? <br>
-                Vamos lá! 😊
+        <!-- Segundo Bloco: Variáveis e Tipos -->
+        <a href="variaveis_e_tipos.html">
+          <div
+            class="caixa bg-[#2d2d2d] p-6 border border-gray-700 rounded-2xl shadow-lg transform transition-transform hover:scale-105 flex-1 h-[300px]"
+          >
+            <h2 class="text-xl font-bold">Variáveis e Tipos</h2>
+            <p class="mt-4 text-gray-400 text-lg">
+              C é uma linguagem<br />estaticamente tipada.
             </p>
-            <a href="https://codeeditor-three-pi.vercel.app/" class="text-gray-400 text-lg mt-4 inline-block cursor-pointer font-bold text-white shadow-lg hover:shadow-white animate__animated animate__pulse animate__infinite" style="animation-duration: 1s; padding: 10px; border-radius: 8px;">
-                Praticar
-            </a>
-        </div>
+          </div>
+        </a>
+
+        <!-- Terceiro Bloco: Constantes -->
+        <a href="constantes.html">
+          <div
+            class="caixa bg-[#2d2d2d] p-6 border border-gray-700 rounded-2xl shadow-lg transform transition-transform hover:scale-105 flex-1 h-[300px]"
+          >
+            <h2 class="text-xl font-bold">Constantes</h2>
+            <p class="mt-4 text-gray-400 text-lg">
+              Vamos, agora, falar<br />das constantes.
+            </p>
+          </div>
+        </a>
+
+        <!-- Quarto Bloco: Operadores -->
+        <a href="operadores.html">
+          <div
+            class="caixa bg-[#2d2d2d] p-6 border border-gray-700 rounded-2xl shadow-lg transform transition-transform hover:scale-105 flex-1 h-[300px]"
+          >
+            <h2 class="text-xl font-bold">Operadores</h2>
+            <p class="mt-4 text-gray-400 text-lg">
+              O C nos oferece uma<br />grande variedade de<br />operadores que
+              podemos<br />usar para fazer operações<br />com os dados.
+            </p>
+          </div>
+        </a>
+
+        <!-- Quinto Bloco: Condicionais -->
+        <a href="condicionais.html">
+          <div
+            class="caixa bg-[#2d2d2d] p-6 border border-gray-700 rounded-2xl shadow-lg transform transition-transform hover:scale-105 flex-1 h-[300px]"
+          >
+            <h2 class="text-xl font-bold">Condicionais</h2>
+            <p class="mt-4 text-gray-400 text-lg">
+              Todas as linguagens de<br />programação fornecem<br />aos
+              programadores<br />a capacidade de<br />realizar escolhas.
+            </p>
+          </div>
+        </a>
+      </div>
+
+      <!-- Espaçamento adicional -->
+      <div class="py-8"></div>
+
+      <!-- Segunda linha de blocos -->
+      <div
+        class="flex flex-col sm:flex-row space-y-6 sm:space-y-0 sm:space-x-6"
+      >
+        <!-- Sexto Bloco: Laços -->
+        <a href="lacos.html">
+          <div
+            class="caixa bg-[#2d2d2d] p-6 border border-gray-700 rounded-2xl shadow-lg transform transition-transform hover:scale-105 flex-1 h-[300px]"
+          >
+            <h2 class="text-xl font-bold">Laços</h2>
+            <p class="mt-4 text-gray-400 text-lg">
+              O C nos oferece três maneiras<br />de realizar um laço: laços
+              for,<br />laços while e laços do while.
+            </p>
+          </div>
+        </a>
+
+        <!-- Sétimo Bloco: Arrays -->
+        <a href="arrays.html">
+          <div
+            class="caixa bg-[#2d2d2d] p-6 border border-gray-700 rounded-2xl shadow-lg transform transition-transform hover:scale-105 flex-1 h-[300px]"
+          >
+            <h2 class="text-xl font-bold">Arrays</h2>
+            <p class="mt-4 text-gray-400 text-lg">
+              Um array é uma variável que<br />armazena diversos valores.
+            </p>
+          </div>
+        </a>
+
+        <!-- Oitavo Bloco: Strings -->
+        <a href="strings.html">
+          <div
+            class="caixa bg-[#2d2d2d] p-6 border border-gray-700 rounded-2xl shadow-lg transform transition-transform hover:scale-105 flex-1 h-[300px]"
+          >
+            <h2 class="text-xl font-bold">Strings</h2>
+            <p class="mt-4 text-gray-400 text-lg">
+              Em C, as strings são um<br />tipo especial de array.
+            </p>
+          </div>
+        </a>
+
+        <!-- Nono Bloco: Ponteiros -->
+        <a href="ponteiros.html">
+          <div
+            class="caixa bg-[#2d2d2d] p-6 border border-gray-700 rounded-2xl shadow-lg transform transition-transform hover:scale-105 flex-1 h-[300px]"
+          >
+            <h2 class="text-xl font-bold">Ponteiros</h2>
+            <p class="mt-4 text-gray-400 text-lg">
+              Os ponteiros são uma das<br />partes mais confusas/desafiadoras<br />da
+              linguagem C.
+            </p>
+          </div>
+        </a>
+
+        <!-- Décimo Bloco: Funções -->
+        <a href="funcoes.html">
+          <div
+            class="caixa bg-[#2d2d2d] p-6 border border-gray-700 rounded-2xl shadow-lg transform transition-transform hover:scale-105 flex-1 h-[300px]"
+          >
+            <h2 class="text-xl font-bold">Funções</h2>
+            <p class="mt-4 text-gray-400 text-lg">
+              As funções são uma forma<br />através da qual podemos<br />estruturar
+              nosso código<br />em sub-rotinas.
+            </p>
+          </div>
+        </a>
+      </div>
+
+      <!-- Espaçamento adicional -->
+      <div class="py-8"></div>
+
+      <!-- Terceira linha de blocos -->
+      <div
+        class="flex flex-col sm:flex-row space-y-6 sm:space-y-0 sm:space-x-6"
+      >
+        <!-- Bloco 11: Entrada e saída -->
+        <a href="entrada_saida.html">
+          <div
+            class="caixa bg-[#2d2d2d] p-6 border border-gray-700 rounded-2xl shadow-lg transform transition-transform hover:scale-105 flex-1 h-[300px]"
+          >
+            <h2 class="text-xl font-bold">Entrada e saída</h2>
+            <p class="mt-4 text-gray-400 text-lg">
+              O C é uma linguagem pequena,<br />e o "núcleo" do C não inclui<br />funcionalidades
+              de<br />entrada/saída (I/O).
+            </p>
+          </div>
+        </a>
+
+        <!-- Bloco 12: Escopo das variáveis -->
+        <a href="escopo_variaveis.html">
+          <div
+            class="caixa bg-[#2d2d2d] p-6 border border-gray-700 rounded-2xl shadow-lg transform transition-transform hover:scale-105 flex-1 h-[300px]"
+          >
+            <h2 class="text-xl font-bold">Escopo das variáveis</h2>
+            <p class="mt-4 text-gray-400 text-lg">
+              Ao definir uma variável em<br />um programa em C,<br />dependendo
+              de onde você<br />a declarar, ela terá um<br />escopo diferente.
+            </p>
+          </div>
+        </a>
+
+        <!-- Bloco 13: Variáveis estáticas -->
+        <a href="variaveis_estaticas.html">
+          <div
+            class="caixa bg-[#2d2d2d] p-6 border border-gray-700 rounded-2xl shadow-lg transform transition-transform hover:scale-105 flex-1 h-[300px]"
+          >
+            <h2 class="text-xl font-bold">Variáveis estáticas</h2>
+            <p class="mt-4 text-gray-400 text-lg">
+              Dentro de uma função,<br />você pode inicializar uma<br />variável
+              estática usando<br />a palavra-chave static.
+            </p>
+          </div>
+        </a>
+
+        <!-- Bloco 14: Variáveis globais -->
+        <a href="variaveis_globais.html">
+          <div
+            class="caixa bg-[#2d2d2d] p-6 border border-gray-700 rounded-2xl shadow-lg transform transition-transform hover:scale-105 flex-1 h-[300px]"
+          >
+            <h2 class="text-xl font-bold">Variáveis globais</h2>
+            <p class="mt-4 text-gray-400 text-lg">
+              Nesta seção, eu gostaria<br />de falar um pouco mais<br />sobre a
+              diferença entre<br />as variáveis locais e globais.
+            </p>
+          </div>
+        </a>
+
+        <!-- Bloco 15: Definições de tipo -->
+        <a href="definicoes_tipo.html">
+          <div
+            class="caixa bg-[#2d2d2d] p-6 border border-gray-700 rounded-2xl shadow-lg transform transition-transform hover:scale-105 flex-1 h-[300px]"
+          >
+            <h2 class="text-xl font-bold">Definições de tipo</h2>
+            <p class="mt-4 text-gray-400 text-lg">
+              A palavra-chave<br />typedef em C permite<br />que você defina
+              tipos novos.
+            </p>
+          </div>
+        </a>
+      </div>
+
+      <!-- Espaçamento adicional -->
+      <div class="py-8"></div>
+
+      <!-- Quarta linha de blocos -->
+      <div
+        class="flex flex-col sm:flex-row space-y-6 sm:space-y-0 sm:space-x-6"
+      >
+        <!-- Bloco 16: Tipos enumerados -->
+        <a href="tipos_enumerados.html">
+          <div
+            class="caixa bg-[#2d2d2d] p-6 border border-gray-700 rounded-2xl shadow-lg transform transition-transform hover:scale-105 flex-1 h-[300px]"
+          >
+            <h2 class="text-xl font-bold">Tipos enumerados</h2>
+            <p class="mt-4 text-gray-400 text-lg">
+              Usando as palavras-chave<br />typedef e enum, podemos<br />definir
+              um tipo que pode ter<br />um valor ou outro.
+            </p>
+          </div>
+        </a>
+
+        <!-- Bloco 17: Estruturas -->
+        <a href="estruturas.html">
+          <div
+            class="caixa bg-[#2d2d2d] p-6 border border-gray-700 rounded-2xl shadow-lg transform transition-transform hover:scale-105 flex-1 h-[300px]"
+          >
+            <h2 class="text-xl font-bold">Estruturas</h2>
+            <p class="mt-4 text-gray-400 text-lg">
+              Usando a palavra-chave struct,<br />podemos criar estruturas de<br />dados
+              complexas por meio<br />dos tipos básicos em C.
+            </p>
+          </div>
+        </a>
+
+        <!-- Bloco 18: Parâmetros da linha de comando -->
+        <a href="parametros_linha_comando.html">
+          <div
+            class="caixa bg-[#2d2d2d] p-6 border border-gray-700 rounded-2xl shadow-lg transform transition-transform hover:scale-105 flex-1 h-[300px]"
+          >
+            <h2 class="text-xl font-bold">Parâmetros da linha de comando</h2>
+            <p class="mt-4 text-gray-400 text-lg">
+              Em seus programas em C,<br />você pode precisar aceitar<br />parâmetros
+              a partir da linha<br />de comando quando um<br />comando for
+              executado.
+            </p>
+          </div>
+        </a>
+
+        <!-- Bloco 19: Arquivos de cabeçalho (headers) -->
+        <a href="arquivos_cabecalho.html">
+          <div
+            class="caixa bg-[#2d2d2d] p-6 border border-gray-700 rounded-2xl shadow-lg transform transition-transform hover:scale-105 flex-1 h-[300px]"
+          >
+            <h2 class="text-xl font-bold">Arquivos de cabeçalho (headers)</h2>
+            <!DOCTYPE html>
+            <html lang="en">
+              <head>
+                <meta charset="UTF-8" />
+                <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+                <meta
+                  name="viewport"
+                  content="width=device-width, initial-scale=1.0"
+                />
+                <title>Curso C</title>
+              </head>
+              <body>
+                <div id="root"></div>
+                <script type="module" src="/src/main.jsx"></script>
+              </body>
+            </html>
+          </div>
+        </a>
+      </div>
     </main>
-
-    <!-- Footer -->
-    <footer class="text-center py-6 bg-black mt-10 border-t border-gray-800">
-        <p class="text-gray-400 text-sm">
-            Artigo original: 
-            <a href="https://flaviocopes.pages.dev/books/c-handbook.pdf" target="_blank" class="text-white hover:underline">
-                The C Beginner's Handbook: Learn C Programming Language basics in just a few hours
-            </a>
-        </p>
-        <p class="text-gray-400 text-sm mt-2">
-            Este manual não busca cobrir tudo o que existe em relação ao C. Ele se concentra no básico da linguagem, tentando simplificar os tópicos mais complexos.
-        </p>
-    </footer>
-
-    <script>
-        const line1 = "Aprenda o básico sobre a linguagem de programação C";
-        const line2 = "com apenas alguns cliques.";
-        const typingElement = document.getElementById('typing-effect');
-        let index1 = 0;
-        let index2 = 0;
-
-        function typeWriterLine1() {
-            if (index1 < line1.length) {
-                typingElement.innerHTML += line1.charAt(index1);
-                index1++;
-                setTimeout(typeWriterLine1, 50); // Velocidade de digitação da primeira linha
-            } else {
-                typingElement.innerHTML += '<br>'; // Quebra de linha após a primeira linha
-                typeWriterLine2(); // Inicia a digitação da segunda linha
-            }
-        }
-
-        function typeWriterLine2() {
-            if (index2 < line2.length) {
-                typingElement.innerHTML += line2.charAt(index2);
-                index2++;
-                setTimeout(typeWriterLine2, 50); // Velocidade de digitação da segunda linha
-            }
-        }
-
-        // Inicia a animação de digitação quando a página é carregada
-        window.onload = typeWriterLine1;
-
-        // Reinicia a animação de digitação quando a página é atualizada
-        window.onbeforeunload = function() {
-            typingElement.innerHTML = '';
-            index1 = 0;
-            index2 = 0;
-        };
-    </script>
-
-</body>
+  </body>
 </html>
